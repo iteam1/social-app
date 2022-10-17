@@ -13,6 +13,7 @@ FastAPI framework
 - install FastAPI full (all flag) `pip3 install fastapi[all]`
 - run app (app instance from main) `uvicorn main:app`
 - view api-doc `http://127.0.0.1:8000/docs`
+- reload web app automaticly if changing happen `uvicon main:app --reload`
 
 ### Course contents
 
