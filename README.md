@@ -4,7 +4,7 @@ FastAPI framework
 <details><summary>Course contents</summary>
 <p>
 
-Intro
+- Intro
 
 - Project Overview
 
@@ -22,301 +22,301 @@ Intro
 
 - Virtual Env on Mac
 
-Install dependencies w/ pip
+- Install dependencies w/ pip
 
-Starting FastAPI
+- Starting FastAPI
 
-Path Operations
+- Path Operations
 
-Intro toman
+- Intro toman
 
-HTTP Requests
+- HTTP Requests
 
-Schema Validation with Pydantic
+- Schema Validation with Pydantic
 
-CRUD Operations
+- CRUD Operations
 
-Storing in Array
+- Storing in Array
 
-Creating
+- Creating
 
-Postman Collections & saving requests
+- Postman Collections & saving requests
 
-Retrieve One
+- Retrieve One
 
-Path order Matters
+- Path order Matters
 
-Changing response Status Codes
+- Changing response Status Codes
 
-Deleting
+- Deleting
 
-Updating
+- Updating
 
-Automatic Documentation
+- Automatic Documentation
 
-Python packages
+- Python packages
 
-Database Intro
+- Database Intro
 
-Postgres Windows Install
+- Postgres Windows Install
 
-Postgres Mac Install
+- Postgres Mac Install
 
-Database Schema & Tables
+- Database Schema & Tables
 
-Managing Postgres with PgAdmin GUI
+- Managing Postgres with PgAdmin GUI
 
-Your first SQL Query
+- Your first SQL Query
 
-Filter results with "where"
+- Filter results with "where"
 
-SQL Operators
+- SQL Operators
 
-IN
+- IN
 
-Pattern matching with LIKE
+- Pattern matching with LIKE
 
-Ordering Results
+- Ordering Results
 
-LIMIT & OFFSET
+- LIMIT & OFFSET
 
-Modifying Data
+- Modifying Data
 
-Setup App Database
+- Setup App Database
 
-Connecting to database w/ Python
+- Connecting to database w/ Python
 
-Database CRUD
+- Database CRUD
 
-ORM intro
+- ORM intro
 
-SQLALCHEMY setup
+- SQLALCHEMY setup
 
-Adding CreatedAt Column
+- Adding CreatedAt Column
 
-Get All
+- Get All
 
-Create
+- Create
 
-Get by ID
+- Get by ID
 
-Delete
+- Delete
 
-Update
+- Update
 
-Pydantic vs ORM Models
+- Pydantic vs ORM Models
 
-Pydantic Models Deep Dive
+- Pydantic Models Deep Dive
 
-Response Model
+- Response Model
 
-Creating Users Table
+- Creating Users Table
 
-User Registration Path Operation
+- User Registration Path Operation
 
-Hashing Passwords
+- Hashing Passwords
 
-Refractor Hashing Logic
+- Refractor Hashing Logic
 
-Get User by ID
+- Get User by ID
 
-FastAPI Routers
+- FastAPI Routers
 
-Router Prefix
+- Router Prefix
 
-Router Tags
+- Router Tags
 
-JWT Token Basics
+- JWT Token Basics
 
-Login Process  
+- Login Process  
 
-Creating Token
+- Creating Token
 
-OAuth2 PasswordRequestForm
+- OAuth2 PasswordRequestForm
 
-Verify user is Logged In
+- Verify user is Logged In
 
-Fixing Bugs
+- Fixing Bugs
 
-Protecting Routes
+- Protecting Routes
 
-Test Expired Token
+- Test Expired Token
 
-Fetching User in Protected Routes
+- Fetching User in Protected Routes
 
-Postman advanced Features
+- Postman advanced Features
 
-SQL Relationship Basics
+- SQL Relationship Basics
 
-Postgres Foreign Keys
+- Postgres Foreign Keys
 
-SQLAlchemy Foreign Keys
+- SQLAlchemy Foreign Keys
 
-Update Schema to include User
+- Update Schema to include User
 
-Assigning Owner id when creating new
+- Assigning Owner id when creating new
 
-Delete and Update only your own
+- Delete and Update only your own
 
-Only Retrieving Logged in User's
+- Only Retrieving Logged in User's
 
-Sqlalchemy Relationships
+- Sqlalchemy Relationships
 
-Query Parameters
+- Query Parameters
 
-Cleanup our main.py file
+- Cleanup our main.py file
 
-Env Variables
+- Env Variables
 
-Vote/Like Theory
+- Vote/Like Theory
 
-Votes Table
+- Votes Table
 
-Votes Sqlalchemy
+- Votes Sqlalchemy
 
-Votes Route
+- Votes Route
 
-SQL Joins
+- SQL Joins
 
-Joins in SqlAlchemy
+- Joins in SqlAlchemy
 
-Get One with Joins
+- Get One with Joins
 
-What is a database migration tool
+- What is a database migration tool
 
-Alembic Setup
+- Alembic Setup
 
-Disable SqlAlchemy create Engine
+- Disable SqlAlchemy create Engine
 
-What is CORS?
+- What is CORS?
 
-Git PreReqs
+- Git PreReqs
 
-Git Install
+- Git Install
 
-Github
+- Github
 
-Heroku intro
+- Heroku intro
 
-Create Heroku App
+- Create Heroku App
 
-Heroku procfile
+- Heroku procfile
 
-Adding a Postgres database
+- Adding a Postgres database
 
-Env Variables in Heroku
+- Env Variables in Heroku
 
-Alembic migrations on Heroku Postgres instance
+- Alembic migrations on Heroku Postgres instance
 
-Pushing changed to production
+- Pushing changed to production
 
-Create an Ubuntu VM
+- Create an Ubuntu VM
 
-Update packages
+- Update packages
 
-Install Python
+- Install Python
 
-Install Postgres & setup password
+- Install Postgres & setup password
 
-Postgres Config
+- Postgres Config
 
-Create new user and setup python evironment
+- Create new user and setup python evironment
 
-Env Variables
+- Env Variables
 
-Alembic migrations on production database
+- Alembic migrations on production database
 
-Gunicorn
+- Gunicorn
 
-Creating a Systemd service
+- Creating a Systemd service
 
-NGINX
+- NGINX
 
-Setting up Domain name
+- Setting up Domain name
 
-SSL/HTTPS
+- SSL/HTTPS
 
-NGINX enable
+- NGINX enable
 
-Firewall
+- Firewall
 
-Pushing code changes to Production
+- Pushing code changes to Production
 
-Dockerfile
+- Dockerfile
 
-Docker Compose
+- Docker Compose
 
-Postgres Container
+- Postgres Container
 
-Bind Mounts
+- Bind Mounts
 
-Dockerhub
+- Dockerhub
 
-Production vs Development
+- Production vs Development
 
-Testing Intro
+- Testing Intro
 
-Writing your first test
+- Writing your first test
 
-The -s & -v flags
+- The -s & -v flags
 
-Testing more functions
+- Testing more functions
 
-Parametrize
+- Parametrize
 
-Testing Classes
+- Testing Classes
 
-Fixtures
+- Fixtures
 
-Combining Fixtures + Parametrize
+- Combining Fixtures + Parametrize
 
-Testing Exceptions
+- Testing Exceptions
 
-FastAPI TestClient
+- FastAPI TestClient
 
-Pytest flags
+- Pytest flags
 
-Test create user
+- Test create user
 
-Setup testing database
+- Setup testing database
 
-Create & destroy database after each test
+- Create & destroy database after each test
 
-More Fixtures to handle database interaction
+- More Fixtures to handle database interaction
 
-Trailing slashes in path
+- Trailing slashes in path
 
-Fixture scope
+- Fixture scope
 
-Test user fixture
+- Test user fixture
 
-Test/validate token
+- Test/validate token
 
-Conftest.py
+- Conftest.py
 
-Testing
+- Testing
 
-CI/CD intro
+- CI/CD intro
 
-Github Actions
+- Github Actions
 
-Creating Jobs
+- Creating Jobs
 
-setup python/dependencies/pytest
+- setup python/dependencies/pytest
 
-Env variables
+- Env variables
 
-Github Secrets
+- Github Secrets
 
-Testing database
+- Testing database
 
-Building Docker images
+- Building Docker images
 
-Deploy to heroku
+- Deploy to heroku
 
-Failing tests in pipeline
+- Failing tests in pipeline
 
-Deploy to Ubuntu
+- Deploy to Ubuntu
 
 </p>
 </details>
