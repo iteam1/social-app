@@ -1,4 +1,5 @@
-from fastapi import FastAPI 
+from fastapi import FastAPI
+from fastapi.params import Body
 
 # init app
 app = FastAPI()
@@ -14,3 +15,13 @@ def root(): # the function option async
 @app.get("/posts")
 def get_posts():
 	return {"data":"This is your posts"}
+
+# add post-method for sending post-request
+# send some data raw-type in body as json,text,etc.
+# Body() extract all the field in body and convert into python-dict and store inside variable name payload
+@app.post("/createposts")
+def create_posts(payload:dict=Body(...)): # payload or any name you want
+	print(payload) # dict-type
+	return {"message":"successfully created posts",
+			"new_post":f"title {payload['title']}",
+			"content":f"content {payload['content']}"}
