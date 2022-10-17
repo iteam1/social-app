@@ -18,27 +18,27 @@ FastAPI framework
 <details><summary>Click to expand</summary>
 <p>
 
-- [Intro]()
+- [Intro](https://github.com/iteam1/social-app/tree/v1)
 
-- [Project Overview]()
+- [Project Overview](https://github.com/iteam1/social-app/tree/v1)
 
-- [Mac Python Installation]()
+- [Mac Python Installation](https://github.com/iteam1/social-app/tree/v1)
 
-- [Mac VS Code install and setup]()
+- [Mac VS Code install and setup](https://github.com/iteam1/social-app/tree/v1)
 
-- [Windows Python Installation]()
+- [Windows Python Installation](https://github.com/iteam1/social-app/tree/v1)
 
-- [Windows VS Code install and setup]()
+- [Windows VS Code install and setup](https://github.com/iteam1/social-app/tree/v1)
 
-- [Python virtual Env Basics]()
+- [Python virtual Env Basics](https://github.com/iteam1/social-app/tree/v1)
 
-- [Virtual Env on windows]()
+- [Virtual Env on windows](https://github.com/iteam1/social-app/tree/v1)
 
-- [Virtual Env on Mac]()
+- [Virtual Env on Mac](https://github.com/iteam1/social-app/tree/v1)
 
-- [Install dependencies w/ pip]()
+- [Install dependencies w/ pip](https://github.com/iteam1/social-app/tree/v1)
 
-- [Starting FastAPI]()
+- [Starting FastAPI](https://github.com/iteam1/social-app/tree/v1)
 
 - Path Operations
 
