@@ -3,6 +3,7 @@ from fastapi import FastAPI
 # init app
 app = FastAPI()
 
-@app.get("/")
-async def root():
+# decorator
+@app.get("/") #method and path
+def root(): # the function option async
 	return{"message":"Hello World!"}
