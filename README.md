@@ -46,7 +46,7 @@ FastAPI framework
 
 - [Intro Postman](https://github.com/iteam1/social-app/tree/v2)
 
-- HTTP Requests
+- [HTTP Requests](https://github.com/iteam1/social-app/tree/v2)
 
 - Schema Validation with Pydantic
 
