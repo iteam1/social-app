@@ -1,0 +1,13 @@
+# compressed files
+*.tar
+*.rar
+*.zip
+
+# virtual enviroment
+env
+
+# visual studio code 
+.vscode
+
+# python interpreter
+__pycache__
