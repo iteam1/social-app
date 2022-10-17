@@ -10,6 +10,7 @@ FastAPI framework
 - deactivate virtual enviroment `deactivate`
 - export packages in virtual enviroment `pip3 freeze > requirements.txt`
 - install packages as requirements: `pip3 install -r requirements.txt`
+- install FastAPI full options `pip3 install fastapi[all]`
 
 ### Course contents
 
@@ -339,4 +340,4 @@ FastAPI framework
 
 [fastapi-course](https://github.com/Sanjeev-Thiyagarajan/fastapi-course)
 
-[FastAPI official document]()
+[FastAPI official document](https://fastapi.tiangolo.com/tutorial/)
