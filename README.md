@@ -3,7 +3,7 @@ FastAPI framework
 
 ### Guides
 
-*Note* Run the command on your terminal
+*Note: Run the command on your terminal*
 
 - create virtual enviroment `virtualenv env`
 - activate virtual enviroment `source env/bin/activate`
@@ -12,6 +12,7 @@ FastAPI framework
 - install packages as requirements: `pip3 install -r requirements.txt`
 - install FastAPI full (all flag) `pip3 install fastapi[all]`
 - run app (app instance from main) `uvicorn main:app`
+- view api-doc `http://127.0.0.1:8000/docs`
 
 ### Course contents
 
