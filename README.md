@@ -342,3 +342,5 @@ FastAPI framework
 [fastapi-course](https://github.com/Sanjeev-Thiyagarajan/fastapi-course)
 
 [FastAPI official document](https://fastapi.tiangolo.com/tutorial/)
+
+[HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
