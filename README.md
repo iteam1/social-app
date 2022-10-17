@@ -6,21 +6,21 @@ FastAPI framework
 
 Intro
 
-Project Overview
+- Project Overview
 
-Mac Python Installation
+- Mac Python Installation
 
-Mac VS Code install and setup
+- Mac VS Code install and setup
 
-Windows Python Installation
+- Windows Python Installation
 
-Windows VS Code install and setup
+- Windows VS Code install and setup
 
-Python virtual Env Basics
+- Python virtual Env Basics
 
-Virtual Env on windows
+- Virtual Env on windows
 
-Virtual Env on Mac
+- Virtual Env on Mac
 
 Install dependencies w/ pip
 
