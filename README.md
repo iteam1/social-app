@@ -1,7 +1,19 @@
 # social-app
 FastAPI framework
 
-<details><summary>Course contents</summary>
+### Guides
+
+*Note* Run the command on your terminal
+
+- create virtual enviroment `virtualenv env`
+- activate virtual enviroment `source env/bin/activate`
+- deactivate virtual enviroment `deactivate`
+- export packages in virtual enviroment `pip3 freeze > requirements.txt`
+- install packages as requirements: `pip3 install -r requirements.txt`
+
+### Course contents
+
+<details><summary>Click to expand</summary>
 <p>
 
 - Intro
