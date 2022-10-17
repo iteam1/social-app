@@ -42,7 +42,7 @@ FastAPI framework
 
 - [Starting FastAPI](https://github.com/iteam1/social-app/tree/v1)
 
-- Path Operations
+- [Path Operations](https://github.com/iteam1/social-app/tree/v2)
 
 - Intro toman
 
