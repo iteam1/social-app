@@ -11,6 +11,7 @@ FastAPI framework
 - export packages in virtual enviroment `pip3 freeze > requirements.txt`
 - install packages as requirements: `pip3 install -r requirements.txt`
 - install FastAPI full (all flag) `pip3 install fastapi[all]`
+- run app (app instance from main) `uvicorn main:app`
 
 ### Course contents
 
