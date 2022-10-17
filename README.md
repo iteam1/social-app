@@ -44,7 +44,7 @@ FastAPI framework
 
 - [Path Operations](https://github.com/iteam1/social-app/tree/v2)
 
-- Intro toman
+- [Intro Postman](https://github.com/iteam1/social-app/tree/v2)
 
 - HTTP Requests
 
@@ -346,3 +346,5 @@ FastAPI framework
 [FastAPI official document](https://fastapi.tiangolo.com/tutorial/)
 
 [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+
+[download Postman](https://www.postman.com/downloads/)
