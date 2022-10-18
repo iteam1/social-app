@@ -48,7 +48,7 @@ FastAPI framework
 
 - [HTTP Requests](https://github.com/iteam1/social-app/tree/v2)
 
-- Schema Validation with Pydantic
+- [Schema Validation with Pydantic](https://github.com/iteam1/social-app/tree/v3)
 
 - CRUD Operations
 
