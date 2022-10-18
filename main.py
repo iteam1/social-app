@@ -5,6 +5,10 @@ from pydantic import BaseModel
 # init app
 app = FastAPI()
 
+# class Post(BaseModel):
+# 	title:
+# 	content:
+
 # look for the first match
 # when you send a request to a path, FastAPI starting search from the top and stop at path where your path is match
 # decorator
@@ -20,6 +24,7 @@ def get_posts():
 # add post-method for sending post-request
 # send some data raw-type in body as json,text,etc.
 # Body() extract all the field in body and convert into python-dict and store inside variable name payload
+# title - str,content - str
 @app.post("/createposts")
 def create_posts(payload:dict=Body(...)): # payload or any name you want
 	print(payload) # dict-type
