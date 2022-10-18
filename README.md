@@ -348,3 +348,5 @@ FastAPI framework
 [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
 [download Postman](https://www.postman.com/downloads/)
+
+[pydantic](https://pydantic-docs.helpmanual.io/)
