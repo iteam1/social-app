@@ -89,6 +89,7 @@ def update_content(post,data):
 			post[i] = data[i]
 	return  post
 
+# if you don't use pydantic to validate data, wrong field data-type can be occur
 @app.patch("/posts/{id}")
 def update_field(id:int,response:Response,data:dict=Body(...)): #,data:dict=Body(...) must be in the last of declaration
 	post = find_post(id)

@@ -12,7 +12,7 @@ FastAPI framework
 - install packages as requirements: `pip3 install -r requirements.txt`
 - install FastAPI full (all flag) `pip3 install fastapi[all]`
 - run app (app instance from main) `uvicorn main:app`
-- view api-doc `http://127.0.0.1:8000/docs`
+- view api-doc `http://127.0.0.1:8000/docs` or `http://127.0.0.1:8000/redoc`
 - reload web app automaticly if changing happen `uvicon main:app --reload`
 
 ### Course contents
@@ -68,9 +68,9 @@ FastAPI framework
 
 - [Updating](https://github.com/iteam1/social-app/tree/v5)
 
-- [Automatic Documentation]](https://github.com/iteam1/social-app/tree/v5)
+- [Automatic Documentation]](http://127.0.0.1:8000/redoc)
 
-- Python packages
+- [Python packages]()
 
 - Database Intro
 
@@ -82,7 +82,7 @@ FastAPI framework
 
 - Managing Postgres with PgAdmin GUI
 
-- Your first SQL Query
+- [Your first SQL Query
 
 - Filter results with "where"
 
