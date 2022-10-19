@@ -11,9 +11,9 @@ FastAPI framework
 - export packages in virtual enviroment `pip3 freeze > requirements.txt`
 - install packages as requirements: `pip3 install -r requirements.txt`
 - install FastAPI full (all flag) `pip3 install fastapi[all]`
-- run app (app instance from main) `uvicorn main:app`
+- run app (app instance from main) `uvicorn app.main:app`
 - view api-doc `http://127.0.0.1:8000/docs` or `http://127.0.0.1:8000/redoc`
-- reload web app automaticly if changing happen `uvicon main:app --reload`
+- reload web app automaticly if changing happen `uvicon app.main:app --reload`
 
 ### Course contents
 
