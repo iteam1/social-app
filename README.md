@@ -75,21 +75,21 @@ FastAPI framework
 
 - [Updating](https://github.com/iteam1/social-app/tree/v5)
 
-- [Automatic Documentation]](http://127.0.0.1:8000/redoc)
+- [Automatic Documentation](https://github.com/iteam1/social-app/tree/v5)
 
-- [Python packages]()
+- [Python packages](https://github.com/iteam1/social-app/tree/v6)
 
-- Database Intro
+- [Database Intro](https://github.com/iteam1/social-app/tree/v6)
 
-- Postgres Windows Install
+- [Postgres Windows Install](https://github.com/iteam1/social-app/tree/v6)
 
-- Postgres Mac Install
+- [Postgres Mac Install](https://github.com/iteam1/social-app/tree/v6)
 
-- Database Schema & Tables
+- [Database Schema & Tables](https://github.com/iteam1/social-app/tree/v6)
 
-- Managing Postgres with PgAdmin GUI
+- Managing Postgres with PgAdmin GUI](https://github.com/iteam1/social-app/tree/v6)
 
-- [Your first SQL Query
+- [Your first SQL Query](https://github.com/iteam1/social-app/tree/v6)
 
 - Filter results with "where"
 
