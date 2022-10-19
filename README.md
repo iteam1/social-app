@@ -365,4 +365,6 @@ FastAPI framework
 
 [HTTP Status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
+[download postgresql](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+
 [Install postgresql](https://www.tecmint.com/install-postgresql-and-pgadmin-in-ubuntu/)
