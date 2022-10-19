@@ -352,3 +352,5 @@ FastAPI framework
 [pydantic](https://pydantic-docs.helpmanual.io/)
 
 [HTTP Status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+[Install postgresql](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
