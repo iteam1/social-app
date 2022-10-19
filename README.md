@@ -350,3 +350,5 @@ FastAPI framework
 [download Postman](https://www.postman.com/downloads/)
 
 [pydantic](https://pydantic-docs.helpmanual.io/)
+
+[HTTP Status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
