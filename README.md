@@ -18,6 +18,9 @@ FastAPI framework
 - then you can access the postgres prompt by running `psql`
 - to exit postgresql prompt `\q`
 - to go back the linux command prompt `exit`
+- run `psql` with user as postgres `sudo -u postgres psql`
+- access pdadmin4 local-server `http://127.0.0.1/pgadmin4
+`
 
 ### Course contents
 
@@ -358,3 +361,5 @@ FastAPI framework
 [HTTP Status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
 [Install postgresql](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
+
+[How to Install PostgreSQL and pgAdmin4 in Ubuntu 21.04](https://www.youtube.com/watch?v=7-V7mqM5N_A)
