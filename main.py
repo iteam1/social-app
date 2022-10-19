@@ -14,6 +14,11 @@ class Post(BaseModel):
 	published: bool = True # choice to public post or not, default is True
 	rating: Optional[int] = None # optional field, integer or None
 
+# list of posts storage purpose
+my_posts = [{"title":"title of post 1","content":"content of post 1","id":1},
+			{"title":"title of post 2","content":" i love cooking","id":2},
+	]
+
 # look for the first match
 # when you send a request to a path, FastAPI starting search from the top and stop at path where your path is match
 # decorator
@@ -24,23 +29,10 @@ def root(): # the function option async
 # add another path operation
 @app.get("/posts")
 def get_posts():
-	return {"data":"This is your posts"}
+	return {"data":my_posts}
 
-# add post-method for sending post-request
-# send some data raw-type in body as json,text,etc.
-# Body() extract all the field in body and convert into python-dict and store inside variable name payload
-# title - str,content - str
 @app.post("/posts")
-def create_posts(payload:dict=Body(...)): # payload or any name you want
-	print(payload) # dict-type
-	return {"message":"successfully created posts",
-			"new_post":f"title {payload['title']}",
-			"content":f"content {payload['content']}"}
-
-# valid data with
-@app.post("/createposts")
-def create_posts(post:Post): # valid post data by Post class created
+def create_posts(post:Post):
 	print(post)
-	# convert pydantic model into dict
 	print(post.dict())
-	return{"data":post}
+	return {"data":post}

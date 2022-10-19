@@ -50,11 +50,11 @@ FastAPI framework
 
 - [Schema Validation with Pydantic](https://github.com/iteam1/social-app/tree/v3)
 
-- [CRUD Operations]](https://github.com/iteam1/social-app/tree/v4)
+- [CRUD Operations](https://github.com/iteam1/social-app/tree/v4)
 
-- Storing in Array
+- [Storing in Array](https://github.com/iteam1/social-app/tree/v4)
 
-- Creating
+- [Creating](https://github.com/iteam1/social-app/tree/v4)
 
 - Postman Collections & saving requests
 
