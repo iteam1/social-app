@@ -14,6 +14,10 @@ FastAPI framework
 - run app (app instance from main) `uvicorn app.main:app`
 - view api-doc `http://127.0.0.1:8000/docs` or `http://127.0.0.1:8000/redoc`
 - reload web app automaticly if changing happen `uvicon app.main:app --reload`
+- switch over to the postgres account on your server `sudo -i -u postgres`
+- then you can access the postgres prompt by running `psql`
+- to exit postgresql prompt `\q`
+- to go back the linux command prompt `exit`
 
 ### Course contents
 
