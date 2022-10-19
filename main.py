@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Response,status,HTTPException
 from fastapi.params import Body
 from typing import Optional
 from pydantic import BaseModel
@@ -20,16 +20,6 @@ my_posts = [{"title":"title of post 1","content":"content of post 1","id":1},
 			{"title":"title of post 2","content":" i love cooking","id":2},
 	]
 
-def find_post(id):
-	for p in my_posts:
-		if p['id'] == id:
-			return p
-		else:
-			return None
-
-# look for the first match
-# when you send a request to a path, FastAPI starting search from the top and stop at path where your path is match
-# decorator
 @app.get("/") # method and path
 def root(): # the function option async
 	return{"message":"wellcome to my api"} # FastAPI auto convert dict into json
@@ -39,30 +29,85 @@ def root(): # the function option async
 def get_posts():
 	return {"data":my_posts}
 
-@app.post("/posts")
-def create_posts(post:Post):
-	# print(post)
-	# print(post.dict())
+# if you want to change the defa
+@app.post("/posts",status_code = status.HTTP_201_CREATED)
+def create_post(post:Post):
 	post_dict = post.dict()
 	post_dict['id'] = randrange(0,1000000) # add new field id into your post, user does not know which id 
 	my_posts.append(post_dict)
 	return {"data":post_dict}
 
-# make mistake with /posts/{id}
-@app.get("/posts/latest")
-def get_latest_post():
-	latest_post = my_posts[len(my_posts)-1]
-	return {"lalest_post":latest_post}
-	
+# @app.get("/posts/{id}")
+# def get_post(id: int, response: Response): # str as default
+# 	post = find_post(id)
+# 	if not post:
+# 		response.status_code =  status.HTTP_404_NOT_FOUND #404
+# 		return {"message":f"post with id {id} not found"}
+# 	return {"post_detail": post}
+
+def find_post(id):
+	for p in my_posts:
+		if p['id'] == id:
+			return p
+		else:
+			return None
+
 @app.get("/posts/{id}")
 def get_post(id: int): # str as default
-	#print(type(id))
-	#post = find_post(int(id))
 	post = find_post(id)
+	if not post:
+		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
+							detail = f"post with id {id} not found")
 	return {"post_detail": post}
 
-# # make mistake with /posts/{id}
-# @app.get("/posts/latest")
-# def get_latest_post():
-# 	latest_post = my_posts[len(my_posts)-1]
-# 	return {"lalest_post":latest_post}
+@app.delete("/posts/{id}",status_code = status.HTTP_204_NO_CONTENT)
+def delete_post(id:int):
+	post = find_post(id)
+	if not post:
+		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
+							detail = f"post with id {id} not found")
+	else:
+		my_posts.remove(post) # pop index
+
+	# return {"post_deleted":post,
+	# 		"message":"Successfully deleted!"}
+	# OR DONT send the data back
+	return Response(status_code = status.HTTP_204_NO_CONTENT)
+
+def update_content(post,data):
+	'''
+	Update content in put data to post
+	Args:
+		post: post
+		data: data update content
+	Return:
+		post: Updated content post
+	'''
+	keys = post.keys()
+	for i in data.keys():
+		if i in keys:
+			post[i] = data[i]
+	return  post
+
+@app.patch("/posts/{id}")
+def update_field(id:int,response:Response,data:dict=Body(...)): #,data:dict=Body(...) must be in the last of declaration
+	post = find_post(id)
+	if not post:
+		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
+							detail = f"post with id {id} not found")
+	#print(data.keys())
+	updated_post = update_content(post,data)
+	response.status_code = status.HTTP_202_ACCEPTED
+	return {"updated_post": updated_post,
+			"update_content": data}
+
+@app.put("/posts/{id}")
+def update_post(id:int,update_post:Post): #,data:dict=Body(...) must be in the last of declaration
+	post = find_post(id)
+	index = my_posts.index(post)
+	if not post:
+		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
+							detail = f"post with id {id} not found")
+	my_posts[index] = update_post.dict()
+	return {"updated_post": update_post.dict(),
+			"message":"post updated!"}
