@@ -19,8 +19,13 @@ FastAPI framework
 - to exit postgresql prompt `\q`
 - to go back the linux command prompt `exit`
 - run `psql` with user as postgres `sudo -u postgres psql`
-- access pdadmin4 local-server `http://127.0.0.1/pgadmin4` email:admin@email.com pass:admin13
-`
+- create supperuser
+
+		sudo -u postgres createuser -s -i -d -r -l -w <<username>>
+		sudo -u postgres psql -c "ALTER ROLE <<username>> WITH PASSWORD '<<password>>';"
+		
+- access pdadmin4 local-server `http://127.0.0.1/pgadmin4`
+- remove postgres `sudo apt-get --purge remove postgresql postgresql-*`
 
 ### Course contents
 
@@ -87,7 +92,7 @@ FastAPI framework
 
 - [Database Schema & Tables](https://github.com/iteam1/social-app/tree/v6)
 
-- Managing Postgres with PgAdmin GUI](https://github.com/iteam1/social-app/tree/v6)
+- [Managing Postgres with PgAdmin GUI](https://github.com/iteam1/social-app/tree/v6)
 
 - [Your first SQL Query](https://github.com/iteam1/social-app/tree/v6)
 
@@ -360,6 +365,4 @@ FastAPI framework
 
 [HTTP Status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
-[Install postgresql](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
-
-[How to Install PostgreSQL and pgAdmin4 in Ubuntu 21.04](https://www.youtube.com/watch?v=7-V7mqM5N_A)
+[Install postgresql](https://www.tecmint.com/install-postgresql-and-pgadmin-in-ubuntu/)
