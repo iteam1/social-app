@@ -367,4 +367,6 @@ FastAPI framework
 
 [download postgresql](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
+[install postgresql windows pgAdmin4 v6.9](https://www.postgresql.org/ftp/pgadmin/pgadmin4/v6.14/windows/)
+
 [Install postgresql](https://www.tecmint.com/install-postgresql-and-pgadmin-in-ubuntu/)
