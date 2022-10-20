@@ -18,14 +18,9 @@ FastAPI framework
 - then you can access the postgres prompt by running `psql`
 - to exit postgresql prompt `\q`
 - to go back the linux command prompt `exit`
-- run `psql` with user as postgres `sudo -u postgres psql`
-- create supperuser
 
-		sudo -u postgres createuser -s -i -d -r -l -w <<username>>
-		sudo -u postgres psql -c "ALTER ROLE <<username>> WITH PASSWORD '<<password>>';"
 		
 - access pdadmin4 local-server `http://127.0.0.1/pgadmin4`
-- remove postgres `sudo apt-get --purge remove postgresql postgresql-*`
 
 ### Course contents
 
@@ -364,3 +359,7 @@ FastAPI framework
 [pydantic](https://pydantic-docs.helpmanual.io/)
 
 [HTTP Status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+[ubuntu-install-postgresql-and-pgadmin](https://codingpub.dev/ubuntu-install-postgresql-and-pgadmin/)
+
+[Ubuntu: Install PostgreSQL and pgAdmin](https://www.pgadmin.org/download/pgadmin-4-apt/)
