@@ -91,23 +91,23 @@ FastAPI framework
 
 - [Your first SQL Query](https://github.com/iteam1/social-app/tree/v6)
 
-- Filter results with "where"
+- [Filter results with "where"](https://github.com/iteam1/social-app/tree/v6)
 
-- SQL Operators
+- [SQL Operators](https://github.com/iteam1/social-app/tree/v6)
 
-- IN
+- [IN](https://github.com/iteam1/social-app/tree/v6)
 
-- Pattern matching with LIKE
+- [Pattern matching with LIKE](https://github.com/iteam1/social-app/tree/v6)
 
-- Ordering Results
+- [Ordering Results](https://github.com/iteam1/social-app/tree/v6)
 
-- LIMIT & OFFSET
+- [LIMIT & OFFSET](https://github.com/iteam1/social-app/tree/v6)
 
-- Modifying Data
+- [Modifying Data](https://github.com/iteam1/social-app/tree/v6)
 
-- Setup App Database
+- [Setup App Database](https://github.com/iteam1/social-app/tree/v7)
 
-- Connecting to database w/ Python
+- [Connecting to database w/ Python](https://github.com/iteam1/social-app/tree/v7)
 
 - Database CRUD
 
@@ -363,3 +363,5 @@ FastAPI framework
 [ubuntu-install-postgresql-and-pgadmin](https://codingpub.dev/ubuntu-install-postgresql-and-pgadmin/)
 
 [Ubuntu: Install PostgreSQL and pgAdmin](https://www.pgadmin.org/download/pgadmin-4-apt/)
+
+[Postgres Datatype](https://www.postgresql.org/docs/current/datatype.html)
