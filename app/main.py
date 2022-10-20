@@ -3,18 +3,40 @@ from fastapi.params import Body
 from typing import Optional
 from pydantic import BaseModel
 from random import randrange
+from psycopg2.extras import RealDictCursor # get extra field to get the column when where database
+import psycopg2
+import time
 
 # init app
 app = FastAPI()
 
-# return data if valid else return None
 # Post schema
 class Post(BaseModel):
 	title: str
 	content: str
-	published: bool = True # choice to public post or not, default is True
+	published: bool = True # default: True
 	# id auto given by postgres 
 	# timestamp given by postgres 
+
+
+# try to connect with database
+host = 'localhost'
+database = 'fastapi'
+user = 'postgres'
+password = 'admin123'
+
+while True: # MUST connect to database successfully before runing server API
+	try:
+		print(f"\nTrying to connect to postgres {host} database {database}")
+		conn = psycopg2.connect(host = host,database= database,user = user,
+	 								password = password,cursor_factory=RealDictCursor)
+		cursor = conn.cursor()
+		print(f"\nConnecting to postgres {host} database {database} connected successfully!")
+		break # jump out while loop if successed
+	except Exception as e:
+		print(f"Connecting to postgres {host} database {database} FAILED!")
+		print("Error: ",e)
+		time.sleep(3)
 
 # list of posts storage purpose
 my_posts = [{"title":"title of post 1","content":"content of post 1","id":1},
@@ -38,13 +60,6 @@ def create_post(post:Post):
 	my_posts.append(post_dict)
 	return {"data":post_dict}
 
-# @app.get("/posts/{id}")
-# def get_post(id: int, response: Response): # str as default
-# 	post = find_post(id)
-# 	if not post:
-# 		response.status_code =  status.HTTP_404_NOT_FOUND #404
-# 		return {"message":f"post with id {id} not found"}
-# 	return {"post_detail": post}
 
 def find_post(id):
 	for p in my_posts:
