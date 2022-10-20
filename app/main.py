@@ -13,7 +13,7 @@ class Post(BaseModel):
 	title: str
 	content: str
 	published: bool = True # choice to public post or not, default is True
-	rating: Optional[int] = None # optional field, integer or None
+	# id auto give on postgres server
 
 # list of posts storage purpose
 my_posts = [{"title":"title of post 1","content":"content of post 1","id":1},

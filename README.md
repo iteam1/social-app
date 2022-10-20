@@ -19,9 +19,6 @@ FastAPI framework
 - to exit postgresql prompt `\q`
 - to go back the linux command prompt `exit`
 
-		
-- access pdadmin4 local-server `http://127.0.0.1/pgadmin4`
-
 ### Course contents
 
 <details><summary>Click to expand</summary>
