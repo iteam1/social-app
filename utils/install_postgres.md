@@ -46,8 +46,13 @@
 - Install for web mode only:  `sudo apt install pgadmin4-web`
 
 To configure web mode, run the command: `sudo /usr/pgadmin4/bin/setup-web.sh`
+
 ### Remove PostgreSQL and Pgadmin4
 
 - remove postgres `sudo apt-get --purge remove postgresql postgresql-*`
 
 - remove pgadminv4 `sudo apt-get --purge remove pgadmin*`
+
+### Install Postgres Adapter 
+
+On Ubuntu: `pip install psycopg2-binary`

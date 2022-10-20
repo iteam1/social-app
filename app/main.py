@@ -13,7 +13,8 @@ class Post(BaseModel):
 	title: str
 	content: str
 	published: bool = True # choice to public post or not, default is True
-	# id auto give on postgres server
+	# id auto given by postgres 
+	# timestamp given by postgres 
 
 # list of posts storage purpose
 my_posts = [{"title":"title of post 1","content":"content of post 1","id":1},

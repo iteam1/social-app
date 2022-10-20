@@ -362,3 +362,5 @@ FastAPI framework
 [Ubuntu: Install PostgreSQL and pgAdmin](https://www.pgadmin.org/download/pgadmin-4-apt/)
 
 [Postgres Datatype](https://www.postgresql.org/docs/current/datatype.html)
+
+[PostgreSQL Python driver](https://www.psycopg.org/docs/)
