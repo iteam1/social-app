@@ -36,14 +36,16 @@
 
 		sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
 
+- Install for desktop mode only: `sudo apt install pgadmin4-desktop` 
+	
+	- pass in `admin123` (the same as super user)
+	- pass to create server with username `postgres`: admin123
+
 - Install for both desktop and web modes: `sudo apt install pgadmin4`
 
-- Install for desktop mode only: `sudo apt install pgadmin4-desktop`
+- Install for web mode only:  `sudo apt install pgadmin4-web`
 
-- Install for web mode only:  `sudo apt install pgadmin4-web` 
-
-- Configure the webserver, if you installed pgadmin4-web: `sudo /usr/pgadmin4/bin/setup-web.sh`
-
+To configure web mode, run the command: `sudo /usr/pgadmin4/bin/setup-web.sh`
 ### Remove PostgreSQL and Pgadmin4
 
 - remove postgres `sudo apt-get --purge remove postgresql postgresql-*`
