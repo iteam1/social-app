@@ -1,11 +1,17 @@
-from fastapi import FastAPI, Response,status,HTTPException
+import psycopg2
+import time
+from fastapi import FastAPI, Response,status,HTTPException,Depends
 from fastapi.params import Body
 from typing import Optional
 from pydantic import BaseModel
 from random import randrange
 from psycopg2.extras import RealDictCursor # get extra field to get the column when where database
-import psycopg2
-import time
+from . import models
+from .database import engine,SessionLocal,get_db
+from sqlalchemy.orm import Session
+
+models.Base.metadata.create_all(bind = engine) # create tables
+
 
 # init app
 app = FastAPI()
@@ -45,6 +51,10 @@ my_posts = [{"title":"title of post 1","content":"content of post 1","id":1},
 @app.get("/") # method and path
 def root(): # the function option async
 	return{"message":"wellcome to my api"} # FastAPI auto convert dict into json
+
+@app.get("/sqlalchemy")
+def test_posts(db:Session = Depends(get_db)):
+	return {"status":"Successed!"}
 
 # add another path operation
 @app.get("/posts")

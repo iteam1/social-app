@@ -108,21 +108,21 @@ FastAPI framework
 
 - [Database CRUD](https://github.com/iteam1/social-app/tree/v7)
 
-- ORM intro
+- [ORM intro](https://github.com/iteam1/social-app/tree/v8)
 
-- SQLALCHEMY setup
+- [SQLALCHEMY setup](https://github.com/iteam1/social-app/tree/v8)
 
-- Adding CreatedAt Column
+- [Adding CreatedAt Column](https://github.com/iteam1/social-app/tree/v8)
 
-- Get All
+- [Get All](https://github.com/iteam1/social-app/tree/v8)
 
-- Create
+- [Create](https://github.com/iteam1/social-app/tree/v8)
 
-- Get by ID
+- [Get by ID](https://github.com/iteam1/social-app/tree/v8)
 
-- Delete
+- [Delete](https://github.com/iteam1/social-app/tree/v8)
 
-- Update
+- [Update](https://github.com/iteam1/social-app/tree/v8)
 
 - Pydantic vs ORM Models
 
@@ -364,3 +364,5 @@ FastAPI framework
 [Postgres Datatype](https://www.postgresql.org/docs/current/datatype.html)
 
 [PostgreSQL Python driver](https://www.psycopg.org/docs/)
+
+[Sqlalchemy](https://www.sqlalchemy.org/)
