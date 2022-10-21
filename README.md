@@ -124,21 +124,21 @@ FastAPI framework
 
 - [Update](https://github.com/iteam1/social-app/tree/v8)
 
-- Pydantic vs ORM Models
+- [Pydantic vs ORM Models](https://github.com/iteam1/social-app/tree/v9)
 
-- Pydantic Models Deep Dive
+- [Pydantic Models Deep Dive](https://github.com/iteam1/social-app/tree/v9)
 
-- Response Model
+- [Response Model](https://github.com/iteam1/social-app/tree/v9)
 
-- Creating Users Table
+- [Creating Users Table](https://github.com/iteam1/social-app/tree/v9)
 
-- User Registration Path Operation
+- [User Registration Path Operation](https://github.com/iteam1/social-app/tree/v9)
 
-- Hashing Passwords
+- [Hashing Passwords](https://github.com/iteam1/social-app/tree/v9)
 
-- Refractor Hashing Logic
+- [Refractor Hashing Logic](https://github.com/iteam1/social-app/tree/v9)
 
-- Get User by ID
+- [Get User by ID](https://github.com/iteam1/social-app/tree/v9)
 
 - FastAPI Routers
 

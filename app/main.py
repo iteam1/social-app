@@ -1,26 +1,15 @@
 import time
 from fastapi import FastAPI, Response,status,HTTPException,Depends
 from fastapi.params import Body
-from typing import Optional
-from pydantic import BaseModel
-from random import randrange
 from . import models
 from .database import engine,SessionLocal,get_db
 from sqlalchemy.orm import Session
+from .schemas import Post
 
 models.Base.metadata.create_all(bind = engine) # create tables
 
 # init app
 app = FastAPI()
-
-# Post schema
-class Post(BaseModel):
-	title: str
-	content: str
-	published: bool = True # default: True
-	# id auto given by postgres 
-	# timestamp given by postgres 
-
 
 @app.get("/") # method and path
 def root(): # the function option async
@@ -90,7 +79,6 @@ def update_post(id:int,update_post:Post,db:Session = Depends(get_db)): #,data:di
 
 	return {"updated_post": post_query.first(),
 			"message":"post updated!"}
-
 
 @app.patch("/posts/{id}")
 def update_field(id:int,response:Response,data:dict=Body(...),db: Session= Depends(get_db)): #,data:dict=Body(...) must be in the last of declaration
