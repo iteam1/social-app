@@ -106,7 +106,7 @@ FastAPI framework
 
 - [Connecting to database w/ Python](https://github.com/iteam1/social-app/tree/v7)
 
-- Database CRUD
+- [Database CRUD](https://github.com/iteam1/social-app/tree/v7)
 
 - ORM intro
 
