@@ -18,7 +18,6 @@ class Post(BaseModel):
 	# id auto given by postgres 
 	# timestamp given by postgres 
 
-
 # try to connect with database
 host = 'localhost'
 database = 'fastapi'
@@ -50,27 +49,26 @@ def root(): # the function option async
 # add another path operation
 @app.get("/posts")
 def get_posts():
-	return {"data":my_posts}
+	cursor.execute("""SELECT * FROM posts""")
+	posts = cursor.fetchall()
+	# print(type(posts)) # list
+	return {"data":posts}
 
 # if you want to change the defa
 @app.post("/posts",status_code = status.HTTP_201_CREATED)
 def create_post(post:Post):
-	post_dict = post.dict()
-	post_dict['id'] = randrange(0,1000000) # add new field id into your post, user does not know which id 
-	my_posts.append(post_dict)
-	return {"data":post_dict}
-
-
-def find_post(id):
-	for p in my_posts:
-		if p['id'] == id:
-			return p
-		else:
-			return None
+	#cursor.execute(f"""INSERT INTO posts (title,content,published) VALUES (post.title,post.content,post.published)""")
+	# anty hacking by content
+	cursor.execute("""INSERT INTO posts (title,content,published) VALUES (%s,%s,%s) RETURNING *""",
+						(post.title,post.content,post.published))
+	new_post = cursor.fetchone() # get thing return from cursor
+	conn.commit()
+	return {"message":"data created!","data":new_post}
 
 @app.get("/posts/{id}")
 def get_post(id: int): # str as default
-	post = find_post(id)
+	cursor.execute(f"""SELECT * FROM posts WHERE id = {id}""")
+	post = cursor.fetchone()
 	if not post:
 		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
 							detail = f"post with id {id} not found")
@@ -78,12 +76,14 @@ def get_post(id: int): # str as default
 
 @app.delete("/posts/{id}",status_code = status.HTTP_204_NO_CONTENT)
 def delete_post(id:int):
-	post = find_post(id)
+	cursor.execute(f"""SELECT * FROM posts WHERE id = {id}""")
+	post = cursor.fetchone()
 	if not post:
 		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
 							detail = f"post with id {id} not found")
 	else:
-		my_posts.remove(post) # pop index
+		cursor.execute(f"""DELETE FROM posts WHERE id = {id}""")
+		conn.commit()
 
 	return Response(status_code = status.HTTP_204_NO_CONTENT)
 
@@ -91,8 +91,8 @@ def update_content(post,data):
 	'''
 	Update content in put data to post
 	Args:
-		post: post
-		data: data update content
+		post: (dict) post
+		data: (dict) data update content
 	Return:
 		post: Updated content post
 	'''
@@ -104,7 +104,8 @@ def update_content(post,data):
 
 @app.patch("/posts/{id}")
 def update_field(id:int,response:Response,data:dict=Body(...)): #,data:dict=Body(...) must be in the last of declaration
-	post = find_post(id)
+	cursor.execute(f"""SELECT * FROM posts WHERE id = {id}""")
+	post = cursor.fetchone()
 	if not post:
 		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
 							detail = f"post with id {id} not found")
@@ -116,11 +117,13 @@ def update_field(id:int,response:Response,data:dict=Body(...)): #,data:dict=Body
 
 @app.put("/posts/{id}")
 def update_post(id:int,update_post:Post): #,data:dict=Body(...) must be in the last of declaration
-	post = find_post(id)
-	index = my_posts.index(post)
+	cursor.execute(f"""SELECT * FROM posts WHERE id = {id}""")
+	post = cursor.fetchone()
 	if not post:
 		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
 							detail = f"post with id {id} not found")
-	my_posts[index] = update_post.dict()
+	cursor.execute("""UPDATE posts SET (title,content,published) = (%s,%s,%s) WHERE id = %s""",
+		(update_post.title,update_post.content,update_post.published,id))
+	conn.commit()
 	return {"updated_post": update_post.dict(),
 			"message":"post updated!"}
