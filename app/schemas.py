@@ -1,19 +1,38 @@
 from pydantic import BaseModel
 
-# Post schema
-class Post(BaseModel):
-	title: str
-	content: str
-	published: bool = True # default: True
-	# id auto given by sqlalchemy models -> postgres 
-	# timestamp auto given by sqlalchemy models -> postgres
+# REQUEST SCHEMA
 
-class CreatePost(BaseModel):
+class PostBase(BaseModel):
+	'''
+	PostBase inherited from BaseModel
+	'''
 	title: str
 	content: str
 	published: bool = True
 
-class UpdatePost(BaseModel):
+class PostCreate(PostBase):
+	'''
+	PostCreate inherited from PostBase
+	'''
+	pass # no more attribute
+
+class PostUpdate(PostBase):
+	'''
+	PostCreate inherited from PostBase
+	'''
+	pass # no more attribute
+
+# RESPONSE SCHEMA
+
+class PostResponse(BaseModel):
+	id: int
 	title: str
 	content: str
-	published: bool = True
+	published: bool
+	# No send back id and created_at
+	class Config:
+		'''
+		Pydantic;s orm_mode will tell Pydantic model to read data even if it is not a dict, but ORM model
+		(or nay other arbitrary object with attriutes) data['id'] = data.id
+		'''
+		orm_mode = True

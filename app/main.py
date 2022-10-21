@@ -4,7 +4,7 @@ from fastapi.params import Body
 from . import models
 from .database import engine,SessionLocal,get_db
 from sqlalchemy.orm import Session
-from .schemas import Post
+from .schemas import PostBase,PostCreate,PostUpdate,PostResponse
 
 models.Base.metadata.create_all(bind = engine) # create tables
 
@@ -19,20 +19,20 @@ def root(): # the function option async
 def test_sqlalchemy(db:Session = Depends(get_db)):
 	return {"message":"Successfully!"}
 
-@app.get("/posts")
-def get_posts(db:Session= Depends(get_db)):
+@app.get("/posts") # Pydantic format
+def get_posts(db:Session= Depends(get_db)): # Pydantic format
 	posts = db.query(models.Post)
-	return {"data":posts.all()}
+	return posts.all() #{"data":posts.all()}
 
-@app.post("/posts",status_code = status.HTTP_201_CREATED)
-def create_post(post:Post,db:Session = Depends(get_db)):
+@app.post("/posts",status_code = status.HTTP_201_CREATED,response_model = PostResponse) # Pydantic format
+def create_post(post:PostCreate,db:Session = Depends(get_db)): # Pydantic format
 	# create row follow model
 	# new_post = models.Post(title = post.title,content = post.content, published = post.published) 
 	new_post = models.Post(**post.dict()) # unpackage form 
 	db.add(new_post) # add new row
 	db.commit() # commit to save it to database
 	db.refresh(new_post)
-	return {"message":"data created!","data":new_post}
+	return new_post#{"message":"data created!","data":new_post}
 
 @app.get("/posts/{id}")
 def get_post(id: int,db: Session = Depends(get_db)): # str as default
@@ -41,7 +41,7 @@ def get_post(id: int,db: Session = Depends(get_db)): # str as default
 	if not post:
 		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
 							detail = f"post with id {id} not found")
-	return {"post_detail": post}
+	return post #{"post_detail": post}
 
 @app.delete("/posts/{id}",status_code = status.HTTP_204_NO_CONTENT)
 def delete_post(id:int,db:Session = Depends(get_db)):
@@ -59,7 +59,7 @@ def delete_post(id:int,db:Session = Depends(get_db)):
 	return Response(status_code = status.HTTP_204_NO_CONTENT)
 
 @app.put("/posts/{id}")
-def update_post(id:int,update_post:Post,db:Session = Depends(get_db)): #,data:dict=Body(...) must be in the last of declaration
+def update_post(id:int,update_post:PostBase,db:Session = Depends(get_db)): #,data:dict=Body(...) must be in the last of declaration
 	
 	post_query = db.query(models.Post).filter(models.Post.id == id)
 	post = post_query.first()
@@ -77,8 +77,7 @@ def update_post(id:int,update_post:Post,db:Session = Depends(get_db)): #,data:di
 	post_query.update(update_post.dict(),synchronize_session =False)
 	db.commit()
 
-	return {"updated_post": post_query.first(),
-			"message":"post updated!"}
+	return post_query.first() #{"updated_post": post_query.first(),"message":"post updated!"}
 
 @app.patch("/posts/{id}")
 def update_field(id:int,response:Response,data:dict=Body(...),db: Session= Depends(get_db)): #,data:dict=Body(...) must be in the last of declaration
@@ -103,6 +102,5 @@ def update_field(id:int,response:Response,data:dict=Body(...),db: Session= Depen
 
 	response.status_code = status.HTTP_202_ACCEPTED
 
-	return({"message":"successfully",
-			"data":post_query.first()})
+	return post_query.first() #{"message":"successfully","data":post_query.first()}
 
