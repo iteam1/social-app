@@ -1,4 +1,5 @@
-from pydantic import BaseModel
+from pydantic import BaseModel,EmailStr
+from datetime import datetime
 
 # REQUEST SCHEMA
 
@@ -24,15 +25,16 @@ class PostUpdate(PostBase):
 
 # RESPONSE SCHEMA
 
-class PostResponse(BaseModel):
+class PostResponse(PostBase):
 	id: int
-	title: str
-	content: str
-	published: bool
-	# No send back id and created_at
+	create_at: datetime #str
 	class Config:
 		'''
 		Pydantic;s orm_mode will tell Pydantic model to read data even if it is not a dict, but ORM model
 		(or nay other arbitrary object with attriutes) data['id'] = data.id
 		'''
 		orm_mode = True
+
+class UserCreate(BaseModel):
+	email: EmailStr# email validation
+	password: str

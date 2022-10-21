@@ -366,3 +366,5 @@ FastAPI framework
 [PostgreSQL Python driver](https://www.psycopg.org/docs/)
 
 [Sqlalchemy](https://www.sqlalchemy.org/)
+
+[Python Typing - Type Hints & Annotations](https://www.youtube.com/watch?v=QORvB-_mbZ0)

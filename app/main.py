@@ -1,10 +1,10 @@
-import time
+from typing import List
 from fastapi import FastAPI, Response,status,HTTPException,Depends
 from fastapi.params import Body
 from . import models
 from .database import engine,SessionLocal,get_db
 from sqlalchemy.orm import Session
-from .schemas import PostBase,PostCreate,PostUpdate,PostResponse
+from .schemas import PostBase,PostCreate,PostUpdate,PostResponse,UserCreate
 
 models.Base.metadata.create_all(bind = engine) # create tables
 
@@ -19,22 +19,20 @@ def root(): # the function option async
 def test_sqlalchemy(db:Session = Depends(get_db)):
 	return {"message":"Successfully!"}
 
-@app.get("/posts") # Pydantic format
+@app.get("/posts",response_model = List[PostResponse]) # Pydantic format
 def get_posts(db:Session= Depends(get_db)): # Pydantic format
 	posts = db.query(models.Post)
 	return posts.all() #{"data":posts.all()}
 
 @app.post("/posts",status_code = status.HTTP_201_CREATED,response_model = PostResponse) # Pydantic format
 def create_post(post:PostCreate,db:Session = Depends(get_db)): # Pydantic format
-	# create row follow model
-	# new_post = models.Post(title = post.title,content = post.content, published = post.published) 
 	new_post = models.Post(**post.dict()) # unpackage form 
 	db.add(new_post) # add new row
 	db.commit() # commit to save it to database
 	db.refresh(new_post)
-	return new_post#{"message":"data created!","data":new_post}
+	return new_post# Follow PostResponse 
 
-@app.get("/posts/{id}")
+@app.get("/posts/{id}",response_model = PostResponse)
 def get_post(id: int,db: Session = Depends(get_db)): # str as default
 	post_query = db.query(models.Post).filter(models.Post.id == id)
 	post = post_query.first()
@@ -58,7 +56,7 @@ def delete_post(id:int,db:Session = Depends(get_db)):
 
 	return Response(status_code = status.HTTP_204_NO_CONTENT)
 
-@app.put("/posts/{id}")
+@app.put("/posts/{id}",response_model = PostResponse)
 def update_post(id:int,update_post:PostBase,db:Session = Depends(get_db)): #,data:dict=Body(...) must be in the last of declaration
 	
 	post_query = db.query(models.Post).filter(models.Post.id == id)
@@ -79,7 +77,7 @@ def update_post(id:int,update_post:PostBase,db:Session = Depends(get_db)): #,dat
 
 	return post_query.first() #{"updated_post": post_query.first(),"message":"post updated!"}
 
-@app.patch("/posts/{id}")
+@app.patch("/posts/{id}",response_model = PostResponse)
 def update_field(id:int,response:Response,data:dict=Body(...),db: Session= Depends(get_db)): #,data:dict=Body(...) must be in the last of declaration
 	
 	post_query = db.query(models.Post).filter(models.Post.id == id)
@@ -104,3 +102,11 @@ def update_field(id:int,response:Response,data:dict=Body(...),db: Session= Depen
 
 	return post_query.first() #{"message":"successfully","data":post_query.first()}
 
+@app.post("/users",status_code = status.HTTP_201_CREATED)
+def create_user(user: UserCreate ,db: Session = Depends(get_db)):
+	new_user = models.User(**user.dict()) # unpackage form 
+	db.add(new_user) # add new row
+	db.commit() # commit to save it to database
+	db.refresh(new_user) # refesh to see brand new user
+	return new_user# Follow PostResponse
+	return {"message":"successed"}
