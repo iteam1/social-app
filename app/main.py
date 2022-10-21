@@ -12,7 +12,6 @@ from sqlalchemy.orm import Session
 
 models.Base.metadata.create_all(bind = engine) # create tables
 
-
 # init app
 app = FastAPI()
 
