@@ -38,3 +38,11 @@ class PostResponse(PostBase):
 class UserCreate(BaseModel):
 	email: EmailStr# email validation
 	password: str
+	# create_at: datetime default
+
+class UserOut(BaseModel):
+	id: int
+	email: EmailStr
+	create_at: datetime
+	class Config:
+		orm_mode = True
