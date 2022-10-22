@@ -25,7 +25,7 @@ FastAPI framework
 <p>
 
 
-	Section 1: Intro
+**Section 1: Intro**
 
 - [Intro](https://github.com/iteam1/social-app/tree/v1)
 
@@ -33,7 +33,7 @@ FastAPI framework
 
 - [Mac Python Installation](https://github.com/iteam1/social-app/tree/v1)
 
-	Section 2: Setup & installation
+**Section 2: Setup & installation**
 
 - [Mac VS Code install and setup](https://github.com/iteam1/social-app/tree/v1)
 
@@ -47,7 +47,7 @@ FastAPI framework
 
 - [Virtual Env on Mac](https://github.com/iteam1/social-app/tree/v1)
 
-	Section 3: FastAPI
+**Section 3: FastAPI**
 
 - [Install dependencies w/ pip](https://github.com/iteam1/social-app/tree/v1)
 
