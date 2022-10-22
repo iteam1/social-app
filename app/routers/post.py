@@ -1,5 +1,5 @@
 from typing import List
-from fastapi import FastAPI,Response,status,HTTPException,Depends,APIRouter
+from fastapi import Response,status,HTTPException,Depends,APIRouter
 from fastapi.params import Body
 from sqlalchemy.orm import Session
 
@@ -7,7 +7,7 @@ from .. import models
 from ..database import get_db
 from ..schemas import PostBase,PostCreate,PostUpdate,PostResponse
 
-router = APIRouter(prefix = '/post',tags = ['Posts']) # create router object
+router = APIRouter(prefix = '/post',tags = ['posts']) # create router object
 
 @router.get("/",response_model = List[PostResponse]) # Pydantic format
 def get_posts(db:Session= Depends(get_db)): # Pydantic format

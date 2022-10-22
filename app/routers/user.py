@@ -1,5 +1,5 @@
 from typing import List
-from fastapi import FastAPI,Response,status,HTTPException,Depends,APIRouter
+from fastapi import Response,status,HTTPException,Depends,APIRouter
 from fastapi.params import Body
 from sqlalchemy.orm import Session
 
@@ -8,7 +8,7 @@ from ..database import get_db
 from ..schemas import UserCreate,UserOut
 from ..utils import hash_pass
 
-router = APIRouter(prefix = '/users', tags = ['Users'])
+router = APIRouter(prefix = '/users', tags = ['users'])
 
 @router.get("/",response_model = List[UserOut])
 def get_users(db: Session = Depends(get_db)):
