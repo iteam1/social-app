@@ -405,3 +405,7 @@ FastAPI framework
 [Python Typing - Type Hints & Annotations](https://www.youtube.com/watch?v=QORvB-_mbZ0)
 
 [Simple OAuth2 with Password and Bearer](https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/)
+
+[JSON Web Token Builder](http://jwtbuilder.jamiekurtz.com/)
+
+[Online JWT Generator](https://www.javainuse.com/jwtgenerator)
