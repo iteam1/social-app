@@ -27,11 +27,13 @@ def get_user(id:int,db:Session = Depends(get_db)):
 def create_user(user: UserCreate ,db: Session = Depends(get_db)):
 
 	# validate the email
-	current_user = db.query(models.User).filter(models.User.email == user['email']).first()
+	current_user = db.query(models.User).filter(models.User.email == user.email).first()
+	print(current_user)
+
 	if current_user:
-		raise HTTPException(status_code = status.HTTP_404_CONFLICT,
+		raise HTTPException(status_code = status.HTTP_409_CONFLICT,
 							detail = f"{user.email} is already be taken")
-		
+
 	#hash the password -user.password
 	hashed_password = hash_pass(user.password)
 	user.password = hashed_password
