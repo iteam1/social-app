@@ -83,6 +83,8 @@ FastAPI framework
 
 - [Python packages](https://github.com/iteam1/social-app/tree/v6)
 
+**Section 4: Databases**
+
 - [Database Intro](https://github.com/iteam1/social-app/tree/v6)
 
 - [Postgres Windows Install](https://github.com/iteam1/social-app/tree/v6)
@@ -109,11 +111,15 @@ FastAPI framework
 
 - [Modifying Data](https://github.com/iteam1/social-app/tree/v6)
 
+**Section 5: Python + Raw SQL**
+
 - [Setup App Database](https://github.com/iteam1/social-app/tree/v7)
 
 - [Connecting to database w/ Python](https://github.com/iteam1/social-app/tree/v7)
 
 - [Database CRUD](https://github.com/iteam1/social-app/tree/v7)
+
+**Section 6: ORMs**
 
 - [ORM intro](https://github.com/iteam1/social-app/tree/v8)
 
@@ -131,11 +137,15 @@ FastAPI framework
 
 - [Update](https://github.com/iteam1/social-app/tree/v8)
 
+**Section 7: Pydantic Models**
+
 - [Pydantic vs ORM Models](https://github.com/iteam1/social-app/tree/v9)
 
 - [Pydantic Models Deep Dive](https://github.com/iteam1/social-app/tree/v9)
 
 - [Response Model](https://github.com/iteam1/social-app/tree/v9)
+
+**Section 8: Authentication & Users**
 
 - [Creating Users Table](https://github.com/iteam1/social-app/tree/v9)
 
@@ -173,6 +183,8 @@ FastAPI framework
 
 - Postman advanced Features
 
+**Section 9: Relationships**
+
 - SQL Relationship Basics
 
 - Postgres Foreign Keys
@@ -195,6 +207,8 @@ FastAPI framework
 
 - Env Variables
 
+**Section 10: Vote/Like System**
+
 - Vote/Like Theory
 
 - Votes Table
@@ -209,11 +223,15 @@ FastAPI framework
 
 - Get One with Joins
 
+**Section 11: Database Migration w/ Alembic**
+
 - What is a database migration tool
 
 - Alembic Setup
 
 - Disable SqlAlchemy create Engine
+
+**Section 12: Pre Deployment Checklist**
 
 - What is CORS?
 
@@ -222,6 +240,8 @@ FastAPI framework
 - Git Install
 
 - Github
+
+**Section 13: Deployment Heroku**
 
 - Heroku intro
 
@@ -236,6 +256,8 @@ FastAPI framework
 - Alembic migrations on Heroku Postgres instance
 
 - Pushing changed to production
+
+**Section 14: Deployment Ubuntu**
 
 - Create an Ubuntu VM
 
@@ -269,6 +291,8 @@ FastAPI framework
 
 - Pushing code changes to Production
 
+**Section 15: Docker**
+
 - Dockerfile
 
 - Docker Compose
@@ -280,6 +304,8 @@ FastAPI framework
 - Dockerhub
 
 - Production vs Development
+
+**Section 16: Testing**
 
 - Testing Intro
 
@@ -322,6 +348,8 @@ FastAPI framework
 - Conftest.py
 
 - Testing
+
+**Section 17: CI/CD pipeline**
 
 - CI/CD intro
 
