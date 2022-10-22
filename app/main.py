@@ -5,8 +5,9 @@ from sqlalchemy.orm import Session
 from . import models
 from .database import engine,SessionLocal,get_db
 from .schemas import PostBase,PostCreate,PostUpdate,PostResponse,UserCreate,UserOut
-
-models.Base.metadata.create_all(bind = engine) # create tables
+from .utils import hash_pass
+# connect server-databse and create tables
+models.Base.metadata.create_all(bind = engine) 
 
 # init app
 app = FastAPI()
@@ -117,6 +118,12 @@ def get_user(id:int,db:Session = Depends(get_db)):
 
 @app.post("/users",status_code = status.HTTP_201_CREATED,response_model = UserOut)
 def create_user(user: UserCreate ,db: Session = Depends(get_db)):
+
+	#hash the password -user.password
+	hashed_password = hash_pass(user.password)
+	user.password = hashed_password
+
+	# create new user
 	new_user = models.User(**user.dict()) # unpackage form 
 	db.add(new_user) # add new row
 	db.commit() # commit to save it to database
