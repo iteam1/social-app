@@ -13,7 +13,7 @@ engine = create_engine(SQLALCHEMY_DATABASE_URL) # engine to connect datanase
 
 SessionLocal = sessionmaker(autocommit = False,autoflush=False,bind = engine) # for taking with database
 
-Base = declarative_base()
+Base = declarative_base() # Model Base for create table
 
 # Dependency [request] -> [create session] -> [create sql] -> [close session]
 def get_db():

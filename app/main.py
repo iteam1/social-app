@@ -1,9 +1,9 @@
 from typing import List
-from fastapi import FastAPI, Response,status,HTTPException,Depends
+from fastapi import FastAPI,Response,status,HTTPException,Depends
 from fastapi.params import Body
+from sqlalchemy.orm import Session
 from . import models
 from .database import engine,SessionLocal,get_db
-from sqlalchemy.orm import Session
 from .schemas import PostBase,PostCreate,PostUpdate,PostResponse,UserCreate
 
 models.Base.metadata.create_all(bind = engine) # create tables

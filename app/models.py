@@ -13,7 +13,6 @@ class Post(Base): # Capitialize
 	published = Column(Boolean,server_default = 'TRUE')
 	create_at = Column(TIMESTAMP(timezone=True),nullable =False,server_default= text('now()'))
 
-
 class User(Base):
 	__tablename__ = "users"
 	
