@@ -24,7 +24,7 @@ def verify_access_token(token:str,credentials_exception):
 	'''
 	try:
 		# decode the token 
-		payload = jwt.decode(token,SECRET_KEY,algorithms = [ALGORITHM])
+		payload = jwt.decode(token,SECRET_KEY,algorithms = [ALGORITHM]) # if the time is expired also return none
 		# get the id
 		id: str = payload.get('user_id')
 		# if there is a id exist
