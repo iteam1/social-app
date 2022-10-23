@@ -185,23 +185,23 @@ FastAPI framework
 
 **Section 9: Relationships**
 
-- SQL Relationship Basics
+- [SQL Relationship Basics](https://github.com/iteam1/social-app/tree/v14)
 
-- Postgres Foreign Keys
+- [Postgres Foreign Keys](https://github.com/iteam1/social-app/tree/v14)
 
-- SQLAlchemy Foreign Keys
+- [SQLAlchemy Foreign Keys](https://github.com/iteam1/social-app/tree/v14)
 
-- Update Schema to include User
+- [Update Schema to include User](https://github.com/iteam1/social-app/tree/v14)
 
-- Assigning Owner id when creating new
+- [Assigning Owner id when creating new](https://github.com/iteam1/social-app/tree/v14)
 
-- Delete and Update only your own
+- [Delete and Update only your own](https://github.com/iteam1/social-app/tree/v14)
 
-- Only Retrieving Logged in User's
+- [Only Retrieving Logged in User's](https://github.com/iteam1/social-app/tree/v14)
 
-- Sqlalchemy Relationships
+- [Sqlalchemy Relationships](https://github.com/iteam1/social-app/tree/v14)
 
-- Query Parameters
+- [Query Parameters](https://github.com/iteam1/social-app/tree/v14)
 
 - Cleanup our main.py file
 

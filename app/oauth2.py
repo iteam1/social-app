@@ -55,6 +55,6 @@ def get_current_user(token:str = Depends(oauth2_scheme)):
 	user = dict(user) #convert to dict 
 
 	if not user:
-		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,detail = f"user id {id} is not found")
+		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,detail = f"credentials user id {id} is not found")
 
 	return {'user_id':user['id'],'email':user['email']}
