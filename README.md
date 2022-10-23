@@ -203,7 +203,7 @@ FastAPI framework
 
 - [Query Parameters](https://github.com/iteam1/social-app/tree/v14)
 
-- Cleanup our main.py file
+- [Cleanup our main.py file](https://github.com/iteam1/social-app/tree/v14)
 
 - Env Variables
 
