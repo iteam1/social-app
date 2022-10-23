@@ -1,6 +1,7 @@
 from sqlalchemy import Column,Integer,String,Boolean,ForeignKey
 from sqlalchemy.sql.expression import null,text
 from sqlalchemy.sql.sqltypes import TIMESTAMP
+from sqlalchemy.orm import relationship
 from .database import Base
 
 # this is python model also databas table, Changing setup in here you need to delete the table from postgres
@@ -14,6 +15,8 @@ class Post(Base): # Capitialize
 	published = Column(Boolean,server_default = 'TRUE')
 	create_at = Column(TIMESTAMP(timezone=True),nullable =False,server_default= text('now()'))
 	owner_id = Column(Integer,ForeignKey("users.id",ondelete="CASCADE"),nullable=False) # foreignkey tablename.column,delete if no long exist cascade
+
+	owner = relationship("User") #auto create owner properties reference to sqlalchemy class User
 
 class User(Base):
 	__tablename__ = "users"
