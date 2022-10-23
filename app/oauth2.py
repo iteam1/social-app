@@ -1,8 +1,10 @@
 from jose import JWTError,jwt
 from datetime import datetime,timedelta
-from .schemas import TokenData
+from .schemas import TokenData,UserOut
 from fastapi import Depends,status,HTTPException
 from fastapi.security import OAuth2PasswordBearer
+from . import models
+from . import conn,cursor
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl = 'login')
 
@@ -42,4 +44,17 @@ def get_current_user(token:str = Depends(oauth2_scheme)):
 											detail = f"Could not validate credentials",
 											headers = {"WWW-Authenticate":"Bearer"})
 
-	return verify_access_token(token,credentials_exception)
+	# get token data
+	token = verify_access_token(token,credentials_exception) # {'id':id}
+
+	# query user id get ERROR Depends has no attritute query.Must attach is on post routes because oauth2 is not route
+	#user = db.query(models.User).filter(models.User.id == token.id).first() 
+	
+	cursor.execute(f"""SELECT * FROM users WHERE id = {token.id}""")
+	user = cursor.fetchone()
+	user = dict(user) #convert to dict 
+
+	if not user:
+		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,detail = f"user id {id} is not found")
+
+	return {'user_id':user['id'],'email':user['email']}

@@ -6,19 +6,21 @@ from sqlalchemy.orm import Session
 from .. import models
 from ..oauth2 import get_current_user
 from ..database import get_db
-from ..schemas import PostBase,PostCreate,PostUpdate,PostResponse
+from ..schemas import PostBase,PostCreate,PostUpdate,PostResponse,UserOut
 
 router = APIRouter(prefix = '/post',tags = ['posts']) # create router object
 
 @router.get("/",response_model = List[PostResponse]) # Pydantic format
 def get_posts(db:Session= Depends(get_db),token: str = Header('Authentication')): # Pydantic format
-	user_id = get_current_user(token) # verify user login by token
+	#'clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'move_to_end', 'pop', 'popitem', 'setdefault', 'update', 'values'
+	current_user = get_current_user(token)
+	print(current_user)
 	posts = db.query(models.Post)
 	return posts.all() #{"data":posts.all()}
 
 @router.post("/",status_code = status.HTTP_201_CREATED,response_model = PostResponse)
 def create_post(post:PostCreate,db:Session = Depends(get_db),token: str = Header('Authentication')): #,user_id: int = Depends(get_current_user)):
-	user_id = get_current_user(token) # verify user login by token
+	current_user = get_current_user(token) # verify user login by token
 	new_post = models.Post(**post.dict()) # unpackage form 
 	db.add(new_post) # add new row
 	db.commit() # commit to save it to database
@@ -27,7 +29,7 @@ def create_post(post:PostCreate,db:Session = Depends(get_db),token: str = Header
 
 @router.get("/{id}",response_model = PostResponse)
 def get_post(id: int,db: Session = Depends(get_db),token: str = Header('Authentication')): # str as default
-	user_id = get_current_user(token)
+	current_user = get_current_user(token)
 	post_query = db.query(models.Post).filter(models.Post.id == id)
 	post = post_query.first()
 	if not post:
@@ -37,7 +39,7 @@ def get_post(id: int,db: Session = Depends(get_db),token: str = Header('Authenti
 
 @router.delete("/{id}",status_code = status.HTTP_204_NO_CONTENT)
 def delete_post(id:int,db:Session = Depends(get_db),token: str = Header('Authentication')):
-	user_id = get_current_user(token)
+	current_user = get_current_user(token)
 	post_query = db.query(models.Post).filter(models.Post.id==id)
 	post = post_query.first()
 	if not post:
@@ -53,7 +55,7 @@ def delete_post(id:int,db:Session = Depends(get_db),token: str = Header('Authent
 
 @router.put("/{id}",response_model = PostResponse)
 def update_post(id:int,update_post:PostBase,db:Session = Depends(get_db),token: str = Header('Authentication')): #,data:dict=Body(...) must be in the last of declaration
-	user_id = get_current_user(token) # verify user login by token
+	current_user = get_current_user(token) # verify user login by token
 	post_query = db.query(models.Post).filter(models.Post.id == id)
 	post = post_query.first()
 	print(post.title)
@@ -74,7 +76,7 @@ def update_post(id:int,update_post:PostBase,db:Session = Depends(get_db),token: 
 
 @router.patch("/{id}",response_model = PostResponse)
 def update_field(id:int,response:Response,data:dict=Body(...),db: Session= Depends(get_db),token: str = Header('Authentication')): #,data:dict=Body(...) must be in the last of declaration
-	user_id = get_current_user(token) # verify user login by token
+	current_user = get_current_user(token) # verify user login by token
 	post_query = db.query(models.Post).filter(models.Post.id == id)
 	post = post_query.first()
 	if not post:

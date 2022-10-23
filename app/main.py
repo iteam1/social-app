@@ -6,10 +6,12 @@ from .database import engine,SessionLocal,get_db
 from .routers import post, user,auth
 
 # connect server-databse and create tables
-models.Base.metadata.create_all(bind = engine) 
+models.Base.metadata.create_all(bind = engine)
 
 # init app
 app = FastAPI()
+
+# include route
 app.include_router(post.router)
 app.include_router(user.router)
 app.include_router(auth.router)
