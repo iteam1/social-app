@@ -2,7 +2,21 @@ from pydantic import BaseModel,EmailStr
 from datetime import datetime
 from typing import Optional
 
-# REQUEST SCHEMA
+class UserCreate(BaseModel):
+	email: EmailStr# email validation
+	password: str
+	# create_at: datetime default
+
+class UserOut(BaseModel):
+	id: int
+	email: EmailStr
+	create_at: datetime
+	class Config:
+		orm_mode = True
+
+class UserLogin(BaseModel):
+	email:EmailStr
+	password:str
 
 class PostBase(BaseModel):
 	'''
@@ -29,12 +43,10 @@ class PostCreated(PostBase):
 	title: str
 	content: str
 	published: bool
+	owner: UserOut # pydantic class
 
 	class Config:
 		orm_mode = True
-
-
-# RESPONSE SCHEMA
 
 class PostResponse(PostBase):
 	id: int
@@ -46,22 +58,6 @@ class PostResponse(PostBase):
 		(or nay other arbitrary object with attriutes) data['id'] = data.id
 		'''
 		orm_mode = True
-
-class UserCreate(BaseModel):
-	email: EmailStr# email validation
-	password: str
-	# create_at: datetime default
-
-class UserOut(BaseModel):
-	id: int
-	email: EmailStr
-	create_at: datetime
-	class Config:
-		orm_mode = True
-
-class UserLogin(BaseModel):
-	email:EmailStr
-	password:str
 
 class Token(BaseModel):
 	access_token: str

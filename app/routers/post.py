@@ -71,6 +71,16 @@ def my_posts(db:Session= Depends(get_db),token: str = Header('Authentication')):
 	my_posts = db.query(models.Post).filter(models.Post.owner_id == current_user['user_id']).all()
 	return my_posts
 
+@router.get("/search/")
+def search_post(title:str = "hello",limit:int = 10,db:Session= Depends(get_db)): # None default arg before default arg
+	
+	results = db.query(models.Post).filter(models.Post.title == title).all()
+	print(results)
+
+	return {"limit":limit,
+			"title":title,
+			"results":results}
+
 @router.put("/{id}",response_model = PostResponse)
 def update_post(id:int,update_post:PostBase,db:Session = Depends(get_db),token: str = Header('Authentication')): #,data:dict=Body(...) must be in the last of declaration
 	current_user = get_current_user(token) # verify user login by token

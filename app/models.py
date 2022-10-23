@@ -15,8 +15,7 @@ class Post(Base): # Capitialize
 	published = Column(Boolean,server_default = 'TRUE')
 	create_at = Column(TIMESTAMP(timezone=True),nullable =False,server_default= text('now()'))
 	owner_id = Column(Integer,ForeignKey("users.id",ondelete="CASCADE"),nullable=False) # foreignkey tablename.column,delete if no long exist cascade
-
-	owner = relationship("User") #auto create owner properties reference to sqlalchemy class User
+	owner = relationship("User") #auto create owner properties reference to sqlalchemy class User, this is not a column
 
 class User(Base):
 	__tablename__ = "users"
