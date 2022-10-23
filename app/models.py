@@ -1,9 +1,10 @@
-from sqlalchemy import Column,Integer,String,Boolean
+from sqlalchemy import Column,Integer,String,Boolean,ForeignKey
 from sqlalchemy.sql.expression import null,text
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from .database import Base
 
-# this is python model also databas table, Changing setup in here you need to delete the table
+# this is python model also databas table, Changing setup in here you need to delete the table from postgres
+# if on table there are some column (attribute) were not declare in here, it still okay to diplay declared column
 class Post(Base): # Capitialize
 	__tablename__ = "posts"
 
@@ -12,6 +13,7 @@ class Post(Base): # Capitialize
 	content = Column(String,nullable=False)
 	published = Column(Boolean,server_default = 'TRUE')
 	create_at = Column(TIMESTAMP(timezone=True),nullable =False,server_default= text('now()'))
+	owner_id = Column(Integer,ForeignKey("users.id",ondelete="CASCADE"),nullable=False) # foreignkey tablename.column,delete if no long exist cascade
 
 class User(Base):
 	__tablename__ = "users"

@@ -10,7 +10,8 @@ class PostBase(BaseModel):
 	'''
 	title: str
 	content: str
-	published: bool = True
+	published: bool = True # default
+	# owner_id: int
 
 class PostCreate(PostBase):
 	'''
@@ -18,17 +19,27 @@ class PostCreate(PostBase):
 	'''
 	pass # no more attribute
 
-class PostUpdate(PostBase):
+class PostUpdate(BaseModel):
 	'''
 	PostCreate inherited from PostBase
 	'''
 	pass # no more attribute
+
+class PostCreated(PostBase):
+	title: str
+	content: str
+	published: bool
+
+	class Config:
+		orm_mode = True
+
 
 # RESPONSE SCHEMA
 
 class PostResponse(PostBase):
 	id: int
 	create_at: datetime #str
+	owner_id: int
 	class Config:
 		'''
 		Pydantic;s orm_mode will tell Pydantic model to read data even if it is not a dict, but ORM model
