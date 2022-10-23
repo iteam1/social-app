@@ -409,3 +409,5 @@ FastAPI framework
 [JSON Web Token Builder](http://jwtbuilder.jamiekurtz.com/)
 
 [Online JWT Generator](https://www.javainuse.com/jwtgenerator)
+
+[OAuth2 with Password (and hashing), Bearer with JWT tokens](https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/)
