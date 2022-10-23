@@ -1,8 +1,7 @@
-from typing import List
+from typing import List,Optional
 from fastapi import Response,status,HTTPException,Depends,APIRouter,Header
 from fastapi.params import Body
 from sqlalchemy.orm import Session
-
 from .. import models
 from ..oauth2 import get_current_user
 from ..database import get_db
@@ -72,13 +71,15 @@ def my_posts(db:Session= Depends(get_db),token: str = Header('Authentication')):
 	return my_posts
 
 @router.get("/search/")
-def search_post(title:str = "hello",limit:int = 10,db:Session= Depends(get_db)): # None default arg before default arg
+def search_post(keyword:Optional[str] = "",limit:int = 10,skip:int = 0,db:Session= Depends(get_db)): # None default arg before default arg
 	
-	results = db.query(models.Post).filter(models.Post.title == title).all()
-	print(results)
+	results_query = db.query(models.Post).filter(models.Post.title.contains(keyword))
 
+	results = results_query.limit(limit).offset(skip).all()
+	
 	return {"limit":limit,
-			"title":title,
+			"skip":skip,
+			"keyword":keyword,
 			"results":results}
 
 @router.put("/{id}",response_model = PostResponse)
