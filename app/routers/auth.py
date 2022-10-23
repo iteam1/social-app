@@ -5,13 +5,13 @@ from sqlalchemy.orm import Session
 
 from .. import models
 from ..database import get_db
-from ..schemas import UserLogin
+from ..schemas import UserLogin,Token
 from ..utils import verify
 from ..oauth2 import create_access_token
 
 router = APIRouter(prefix = '/login',tags= ['authentication'])
 
-@router.post('/')
+@router.post('/',response_model = Token)
 def login(user_credentials: OAuth2PasswordRequestForm = Depends(),db :Session= Depends(get_db)): #user_credentials: UserLogin
 
 	# OAuthPasswordRequestForm is gonna return a dict content but it only required to give username and password

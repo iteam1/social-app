@@ -1,21 +1,24 @@
 from typing import List
-from fastapi import Response,status,HTTPException,Depends,APIRouter
+from fastapi import Response,status,HTTPException,Depends,APIRouter,Header
 from fastapi.params import Body
 from sqlalchemy.orm import Session
 
 from .. import models
+from ..oauth2 import get_current_user
 from ..database import get_db
 from ..schemas import PostBase,PostCreate,PostUpdate,PostResponse
 
 router = APIRouter(prefix = '/post',tags = ['posts']) # create router object
 
 @router.get("/",response_model = List[PostResponse]) # Pydantic format
-def get_posts(db:Session= Depends(get_db)): # Pydantic format
+def get_posts(db:Session= Depends(get_db),token: str = Header('Authentication')): # Pydantic format
+	user_id = get_current_user(token) # verify user login by token
 	posts = db.query(models.Post)
 	return posts.all() #{"data":posts.all()}
 
-@router.post("/",status_code = status.HTTP_201_CREATED,response_model = PostResponse) # Pydantic format
-def create_post(post:PostCreate,db:Session = Depends(get_db)): # Pydantic format
+@router.post("/",status_code = status.HTTP_201_CREATED,response_model = PostResponse)
+def create_post(post:PostCreate,db:Session = Depends(get_db),token: str = Header('Authentication')): #,user_id: int = Depends(get_current_user)):
+	user_id = get_current_user(token) # verify user login by token
 	new_post = models.Post(**post.dict()) # unpackage form 
 	db.add(new_post) # add new row
 	db.commit() # commit to save it to database
@@ -23,7 +26,8 @@ def create_post(post:PostCreate,db:Session = Depends(get_db)): # Pydantic format
 	return new_post# Follow PostResponse 
 
 @router.get("/{id}",response_model = PostResponse)
-def get_post(id: int,db: Session = Depends(get_db)): # str as default
+def get_post(id: int,db: Session = Depends(get_db),token: str = Header('Authentication')): # str as default
+	user_id = get_current_user(token)
 	post_query = db.query(models.Post).filter(models.Post.id == id)
 	post = post_query.first()
 	if not post:
@@ -32,7 +36,8 @@ def get_post(id: int,db: Session = Depends(get_db)): # str as default
 	return post #{"post_detail": post}
 
 @router.delete("/{id}",status_code = status.HTTP_204_NO_CONTENT)
-def delete_post(id:int,db:Session = Depends(get_db)):
+def delete_post(id:int,db:Session = Depends(get_db),token: str = Header('Authentication')):
+	user_id = get_current_user(token)
 	post_query = db.query(models.Post).filter(models.Post.id==id)
 	post = post_query.first()
 	if not post:
@@ -47,8 +52,8 @@ def delete_post(id:int,db:Session = Depends(get_db)):
 	return Response(status_code = status.HTTP_204_NO_CONTENT)
 
 @router.put("/{id}",response_model = PostResponse)
-def update_post(id:int,update_post:PostBase,db:Session = Depends(get_db)): #,data:dict=Body(...) must be in the last of declaration
-	
+def update_post(id:int,update_post:PostBase,db:Session = Depends(get_db),token: str = Header('Authentication')): #,data:dict=Body(...) must be in the last of declaration
+	user_id = get_current_user(token) # verify user login by token
 	post_query = db.query(models.Post).filter(models.Post.id == id)
 	post = post_query.first()
 	print(post.title)
@@ -68,14 +73,13 @@ def update_post(id:int,update_post:PostBase,db:Session = Depends(get_db)): #,dat
 	return post_query.first() #{"updated_post": post_query.first(),"message":"post updated!"}
 
 @router.patch("/{id}",response_model = PostResponse)
-def update_field(id:int,response:Response,data:dict=Body(...),db: Session= Depends(get_db)): #,data:dict=Body(...) must be in the last of declaration
-	
+def update_field(id:int,response:Response,data:dict=Body(...),db: Session= Depends(get_db),token: str = Header('Authentication')): #,data:dict=Body(...) must be in the last of declaration
+	user_id = get_current_user(token) # verify user login by token
 	post_query = db.query(models.Post).filter(models.Post.id == id)
 	post = post_query.first()
 	if not post:
 		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
 							detail = f"post with id {id} not found")
-
 	# update
 	if 'title' in data.keys():
 		post.title = data['title']
