@@ -6,6 +6,7 @@ from .. import models
 from ..database import get_db
 from ..schemas import UserLogin
 from ..utils import verify
+from ..oauth2 import create_access_token
 
 router = APIRouter(prefix = '/login',tags= ['authentication'])
 
@@ -22,6 +23,9 @@ def login(user_credentials: UserLogin,db :Session= Depends(get_db)):
 							detail = f"Invalid Credentials")
 
 	# create a token
-	return {"token":"example token"}
+	access_token = create_access_token(data = {"user_id":user.id})
+
+	return {"access_token" : access_token,
+			"token_type": "bearer"}
 
 

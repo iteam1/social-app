@@ -411,3 +411,5 @@ FastAPI framework
 [Online JWT Generator](https://www.javainuse.com/jwtgenerator)
 
 [OAuth2 with Password (and hashing), Bearer with JWT tokens](https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/)
+
+[Decode token online tool](http://calebb.net/)
