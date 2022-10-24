@@ -24,6 +24,18 @@ FastAPI framework
 - left join query: `SELECT * FROM posts LEFT JOIN users ON posts.owner_id = users.id;` (add more info)
 - left join specific column from specific table: `SELECT posts.id,email FROM posts LEFT JOIN users ON posts.owner_id = users.id;`
 - left join specific column from specific table: `SELECT posts.* FROM posts LEFT JOIN users ON posts.owner_id = users.id;`
+- group by `SELECT users.id , COUNT(posts.id) FROM posts LEFT JOIN users ON posts.owner_id = users.id  group by users.id;`
+- group by `SELECT users.id , COUNT(posts.id) FROM posts RIGHT JOIN users ON posts.owner_id = users.id  group by users.id;`
+- group by and rename `SELECT users.id , COUNT(posts.id) as users_post_count FROM posts LEFT JOIN users ON
+posts.owner_id = users.id  group by users.id;
+`
+-count vote follow posts `SELECT posts.id,COUNT(*) AS vote_count FROM posts LEFT JOIN votes ON
+posts.id = votes.post_id GROUP BY posts.id;`
+-count vote follow posts count user_id column `SELECT posts.id, COUNT(votes.user_id) AS vote_count FROM posts LEFT JOIN votes ON
+posts.id = votes.post_id GROUP BY posts.id;`
+- count vote with WHERE condition `SELECT posts.*, COUNT(votes.post_id) AS vote_count FROM posts LEFT JOIN votes ON posts.id = votes.post_id  WHERE posts.id = 7 GROUP BY posts.id;`
+
+
 ### Course contents
 
 <details><summary>Click to expand</summary>
