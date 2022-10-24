@@ -15,4 +15,4 @@ settings.database_username = POSTGRES_USER
 settings.database_name = POSTGRES_DATABASE
 settings.hostname = POSTGRES_HOST
 settings.secret_key = SECRET_KEY
-settings.expired_time = ACCESS_TOKEN_EXPIRE_MINUTES
+settings.expired_time = int(ACCESS_TOKEN_EXPIRE_MINUTES)
