@@ -378,7 +378,7 @@ FastAPI framework
 </p>
 </details>
 
-### references
+### References
 
 [Python API Development - Comprehensive Course for Beginners](https://www.youtube.com/watch?v=0sOvCWFmrtA)
 
