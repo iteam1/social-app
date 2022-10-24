@@ -31,16 +31,18 @@ def create_post(post:PostCreate,db:Session = Depends(get_db),token: str = Header
 	db.refresh(new_post)
 	return new_post# Follow PostResponse 
 
-@router.get("/{id}",response_model = PostResponse)
+@router.get("/{id}",response_model = PostOut)
 def get_post(id: int,db: Session = Depends(get_db),token: str = Header('Authentication')): # str as default
 	current_user = get_current_user(token)
-	post_query = db.query(models.Post).filter(models.Post.id == id)
+	post_query = db.query(models.Post,func.count(models.Vote.post_id).label('votes')).join(
+					models.Vote,models.Post.id == models.Vote.post_id,isouter = True).group_by(
+						models.Post.id).where(models.Post.id == id)
 	post = post_query.first()
 	if not post:
 		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
 							detail = f"post with id {id} not found")
 
-	if post.owner_id != current_user['user_id']:
+	if post.Post.owner_id != current_user['user_id']:
 			raise HTTPException(status_code = status.HTTP_401_UNAUTHORIZED,
 							detail = f"this post is not belong to this user")
 
@@ -64,16 +66,24 @@ def delete_post(id:int,db:Session = Depends(get_db),token: str = Header('Authent
 
 	return Response(status_code = status.HTTP_204_NO_CONTENT)
 
-@router.get("/mine/",response_model = List[PostCreated]) # '/mine/' NOT '/mine'
+@router.get("/mine/",response_model = List[PostOut]) # '/mine/' NOT '/mine'
 def my_posts(db:Session= Depends(get_db),token: str = Header('Authentication')):
 	current_user = get_current_user(token)
-	my_posts = db.query(models.Post).filter(models.Post.owner_id == current_user['user_id']).all()
-	return my_posts
+	# my_posts = db.query(models.Post).filter(models.Post.owner_id == current_user['user_id']).all()
+	post_query = db.query(models.Post,func.count(models.Vote.post_id).label('votes')).join(
+					models.Vote,models.Post.id == models.Vote.post_id,isouter = True).group_by(
+						models.Post.id).where(models.Post.owner_id == current_user['user_id'])
+	posts = post_query.all()
+	return posts
 
 @router.get("/search/")
 def search_post(keyword:Optional[str] = "",limit:int = 10,skip:int = 0,db:Session= Depends(get_db)): # None default arg before default arg
 	
-	results_query = db.query(models.Post).filter(models.Post.title.contains(keyword))
+	# results_query = db.query(models.Post).filter(models.Post.title.contains(keyword))
+
+	results_query =  db.query(models.Post,func.count(models.Vote.post_id).label('votes')).join(
+					models.Vote,models.Post.id == models.Vote.post_id,isouter = True).group_by(
+						models.Post.id).filter(models.Post.title.contains(keyword))
 
 	results = results_query.limit(limit).offset(skip).all()
 	
