@@ -27,7 +27,6 @@ FastAPI framework
 <details><summary>Click to expand</summary>
 <p>
 
-
 **Section 1: Intro**
 
 - [Intro](https://github.com/iteam1/social-app/tree/v1)
@@ -394,6 +393,8 @@ FastAPI framework
 [pydantic](https://pydantic-docs.helpmanual.io/)
 
 [HTTP Status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+[PostgreSQL Tutorial](https://www.postgresqltutorial.com/)
 
 [ubuntu-install-postgresql-and-pgadmin](https://codingpub.dev/ubuntu-install-postgresql-and-pgadmin/)
 
