@@ -5,12 +5,17 @@ from fastapi import Depends,status,HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from . import models
 from . import conn,cursor
+import os 
+
+POSTGRES_HOST = os.environ.get('POSTGRES_HOST') 
+POSTGRES_DATABASE = os.environ.get('POSTGRES_DATABASE') 
+POSTGRES_USER = os.environ.get('POSTGRES_USER')
+POSTGRES_PASS = os.environ.get('POSTGRES_PASS')
+SECRET_KEY  = os.environ.get('SECRET_KEY') 
+ALGORITHM = os.environ.get('ALGORITHM') 
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.environ.get('ACCESS_TOKEN_EXPIRE_MINUTES'))
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl = 'login')
-
-SECRET_KEY  = "09c47fdd132bc4c948adf7dac546c2213ab91cbdd572addbfb844aab6167d295" # openssl rand -hex 32 ,serect key
-ALGORITHM = "HS256" # Algorithm 
-ACCESS_TOKEN_EXPIRE_MINUTES = 30# Expriation Time
 
 def create_access_token(data:dict): # define data is a dict
 	to_encode = data.copy() # copy value to encode

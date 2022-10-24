@@ -18,6 +18,9 @@ FastAPI framework
 - then you can access the postgres prompt by running `psql`
 - to exit postgresql prompt `\q`
 - to go back the linux command prompt `exit`
+- check linux enviroment variables `set`
+- check specific linux variable `echo "$HOME"`
+- set a enviroment variable `export POSTGRES_HOST=localhost`
 
 ### Course contents
 
@@ -205,23 +208,23 @@ FastAPI framework
 
 - [Cleanup our main.py file](https://github.com/iteam1/social-app/tree/v14)
 
-- Env Variables
+- [Env Variables](https://github.com/iteam1/social-app/tree/v15)
 
 **Section 10: Vote/Like System**
 
-- Vote/Like Theory
+- [Vote/Like Theory](https://github.com/iteam1/social-app/tree/v15)
 
-- Votes Table
+- [Votes Table](https://github.com/iteam1/social-app/tree/v15)
 
-- Votes Sqlalchemy
+- [Votes Sqlalchemy](https://github.com/iteam1/social-app/tree/v15)
 
-- Votes Route
+- [Votes Route](https://github.com/iteam1/social-app/tree/v15)
 
-- SQL Joins
+- [SQL Joins](https://github.com/iteam1/social-app/tree/v15)
 
-- Joins in SqlAlchemy
+- [Joins in SqlAlchemy](https://github.com/iteam1/social-app/tree/v15)
 
-- Get One with Joins
+- [Get One with Joins](https://github.com/iteam1/social-app/tree/v15)
 
 **Section 11: Database Migration w/ Alembic**
 

@@ -15,7 +15,6 @@ app.include_router(post.router)
 app.include_router(user.router)
 app.include_router(auth.router)
 
-
 @app.get("/") # method and path
 def root(): # the function option async
 	return{"message":"wellcome to my api"} # FastAPI auto convert dict into json
