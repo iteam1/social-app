@@ -45,3 +45,24 @@ def vote(vote:Vote,db:Session = Depends(get_db),token: str = Header('Authenticat
 		else:
 			raise HTTPException(status_code = status.HTTP_409_CONFLICT,
 				detail= f"This post is NOT exist or User did not vote post yet!")
+
+
+@router.get("/mine/",response_model = List[Voted])
+def my_vote(db:Session= Depends(get_db),token: str = Header('Authentication')): # None default arg before default arg	
+	current_user = get_current_user(token)
+	results = db.query(models.Vote).filter(models.Vote.user_id == current_user['user_id']).all()
+	return results
+
+@router.get("/search/",response_model = List[Voted])
+def search_user(post_id:int,db:Session= Depends(get_db),token: str = Header('Authentication')):
+	current_user = get_current_user(token)
+
+	post_query = db.query(models.Post).filter(models.Post.id==post_id)
+	post = post_query.first()
+	if not post:
+		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
+							detail = f"post with id =  {post_id} not found")
+
+	results = db.query(models.Vote).filter(models.Vote.post_id == post_id).all()
+
+	return results
