@@ -10,8 +10,6 @@ class Settings(BaseSettings):
 	secret_key: str = "sdfjs34563439u"
 	expired_time: int = 30
 
-
-
 class UserCreate(BaseModel):
 	email: EmailStr# email validation
 	password: str
