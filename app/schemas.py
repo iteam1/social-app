@@ -1,4 +1,5 @@
 from pydantic import BaseModel,EmailStr,BaseSettings
+from pydantic.types import conint
 from datetime import datetime
 from typing import Optional
 
@@ -78,3 +79,14 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
 	id: Optional[str] = None
+
+class Vote(BaseModel):
+	post_id: int
+	dir: conint(le=1) # less or equal 1
+
+class Voted(BaseModel):
+	post_id: int
+	user_id: int
+
+	class Config:
+		orm_mode = True
