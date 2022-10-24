@@ -1,6 +1,16 @@
-from pydantic import BaseModel,EmailStr
+from pydantic import BaseModel,EmailStr,BaseSettings
 from datetime import datetime
 from typing import Optional
+
+class Settings(BaseSettings):
+	database_password: str = '123' # default
+	database_username: str = 'postgres'
+	database_name: str = 'fastapi'
+	hostname: str = 'localhost'
+	secret_key: str = "sdfjs34563439u"
+	expired_time: int = 30
+
+
 
 class UserCreate(BaseModel):
 	email: EmailStr# email validation
