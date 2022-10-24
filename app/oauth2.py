@@ -1,27 +1,20 @@
-from jose import JWTError,jwt
-from datetime import datetime,timedelta
 from .schemas import TokenData,UserOut
-from fastapi import Depends,status,HTTPException
-from fastapi.security import OAuth2PasswordBearer
+from .config import settings
 from . import models
 from . import conn,cursor
+from fastapi import Depends,status,HTTPException
+from fastapi.security import OAuth2PasswordBearer
+from jose import JWTError,jwt
+from datetime import datetime,timedelta
 import os 
-
-POSTGRES_HOST = os.environ.get('POSTGRES_HOST') 
-POSTGRES_DATABASE = os.environ.get('POSTGRES_DATABASE') 
-POSTGRES_USER = os.environ.get('POSTGRES_USER')
-POSTGRES_PASS = os.environ.get('POSTGRES_PASS')
-SECRET_KEY  = os.environ.get('SECRET_KEY') 
-ALGORITHM = os.environ.get('ALGORITHM') 
-ACCESS_TOKEN_EXPIRE_MINUTES = int(os.environ.get('ACCESS_TOKEN_EXPIRE_MINUTES'))
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl = 'login')
 
 def create_access_token(data:dict): # define data is a dict
 	to_encode = data.copy() # copy value to encode
-	expire = datetime.utcnow() + timedelta(minutes = ACCESS_TOKEN_EXPIRE_MINUTES) #declare time and expire token
+	expire = datetime.utcnow() + timedelta(minutes = settings.access_token_expire_minutes) #declare time and expire token
 	to_encode.update({"exp":expire})
-	encoded_jwt = jwt.encode(to_encode,SECRET_KEY,algorithm = ALGORITHM) # payload and signature
+	encoded_jwt = jwt.encode(to_encode,settings.secret_key,algorithm = settings.algorithm) # payload and signature
 	return encoded_jwt
 
 def verify_access_token(token:str,credentials_exception):
@@ -31,7 +24,7 @@ def verify_access_token(token:str,credentials_exception):
 	'''
 	try:
 		# decode the token 
-		payload = jwt.decode(token,SECRET_KEY,algorithms = [ALGORITHM]) # if the time is expired also return none
+		payload = jwt.decode(token,settings.secret_key,algorithms = [settings.algorithm]) # if the time is expired also return none
 		# get the id
 		id: str = payload.get('user_id')
 		# if there is a id exist

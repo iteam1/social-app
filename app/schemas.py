@@ -3,12 +3,17 @@ from datetime import datetime
 from typing import Optional
 
 class Settings(BaseSettings):
-	database_password: str = '123' # default
-	database_username: str = 'postgres'
-	database_name: str = 'fastapi'
-	hostname: str = 'localhost'
-	secret_key: str = "sdfjs34563439u"
-	expired_time: int = 30
+	database_username: str #tge name must be correct inside .env
+	database_password: str
+	database_name: str
+	database_port: int
+	database_hostname: str
+	algorithm: str
+	secret_key: str
+	access_token_expire_minutes: int
+
+	class Config:
+		env_file = ".env"
 
 class UserCreate(BaseModel):
 	email: EmailStr# email validation
