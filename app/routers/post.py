@@ -1,28 +1,30 @@
 from typing import List,Optional
 from fastapi import Response,status,HTTPException,Depends,APIRouter,Header
 from fastapi.params import Body
+from sqlalchemy import func # to access count function
 from sqlalchemy.orm import Session
 from .. import models
 from ..oauth2 import get_current_user
 from ..database import get_db
-from ..schemas import PostBase,PostCreate,PostUpdate,PostResponse,UserOut,PostCreated
+from ..schemas import PostBase,PostCreate,PostUpdate,PostResponse,UserOut,PostCreated,PostOut
 
 router = APIRouter(prefix = '/post',tags = ['posts']) # create router object
 
-@router.get("/",response_model = List[PostResponse]) # Pydantic format
+@router.get("/",response_model = List[PostOut])
 def get_posts(db:Session= Depends(get_db),token: str = Header('Authentication')): # Pydantic format
-	#'clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'move_to_end', 'pop', 'popitem', 'setdefault', 'update', 'values'
 	current_user = get_current_user(token)
-	# print(current_user)
-	posts = db.query(models.Post)
-	return posts.all() #{"data":posts.all()}
+	posts = db.query(models.Post).all()
+	# post_query = db.query(models.Post) SELECT ALL
+	# post_query = db.query(models.Post).join(models.Vote,models.Post.id == models.Vote.post_id,isouter = True)  LEFT OUTER JOIN
+	post_query = db.query(models.Post,func.count(models.Vote.post_id).label('votes')).join(
+					models.Vote,models.Post.id == models.Vote.post_id,isouter = True).group_by(
+						models.Post.id)
+	results = post_query.all()
+	return results
 
 @router.post("/",status_code = status.HTTP_201_CREATED,response_model = PostResponse)
 def create_post(post:PostCreate,db:Session = Depends(get_db),token: str = Header('Authentication')): #,user_id: int = Depends(get_current_user)):
 	current_user = get_current_user(token) # verify user login by token
-	# print(current_user)
-	# post = post.dict() # convert to dict
-	# post['owner_id'] = current_user['user_id']
 	new_post = models.Post(owner_id = current_user['user_id'], **post.dict()) # unpackage form 
 	db.add(new_post) # add new row
 	db.commit() # commit to save it to database
@@ -53,8 +55,6 @@ def delete_post(id:int,db:Session = Depends(get_db),token: str = Header('Authent
 		raise HTTPException(status_code = status.HTTP_404_NOT_FOUND,
 							detail = f"post with id {id} not found")
 	else:
-		# db.delete(post)
-		# db.commit()
 		if post.owner_id != current_user['user_id']:
 			raise HTTPException(status_code = status.HTTP_401_UNAUTHORIZED,
 							detail = f"this post is not belong to this user")
@@ -111,7 +111,6 @@ def update_field(id:int,response:Response,data:dict=Body(...),db: Session= Depen
 	if post.owner_id != current_user['user_id']:
 			raise HTTPException(status_code = status.HTTP_401_UNAUTHORIZED,
 							detail = f"this post is not belong to this user")
-
 	# update
 	if 'title' in data.keys():
 		post.title = data['title']
