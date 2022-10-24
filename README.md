@@ -21,7 +21,9 @@ FastAPI framework
 - check linux enviroment variables `set`
 - check specific linux variable `echo "$HOME"`
 - set a enviroment variable `export POSTGRES_HOST=localhost`
-
+- left join query: `SELECT * FROM posts LEFT JOIN users ON posts.owner_id = users.id;` (add more info)
+- left join specific column from specific table: `SELECT posts.id,email FROM posts LEFT JOIN users ON posts.owner_id = users.id;`
+- left join specific column from specific table: `SELECT posts.* FROM posts LEFT JOIN users ON posts.owner_id = users.id;`
 ### Course contents
 
 <details><summary>Click to expand</summary>
