@@ -40,7 +40,10 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 - count vote with WHERE condition `SELECT posts.*, COUNT(votes.post_id) AS vote_count FROM posts LEFT JOIN votes ON posts.id = votes.post_id  WHERE posts.id = 7 GROUP BY posts.id;`
 
-
+- install `heroku` on ubuntu `sudo snap install heroku --classic`
+- check install version `heroku --version`
+- get help `heroku --help`
+- check git remote `git remote`
 ### Course contents
 
 <details><summary>Click to expand</summary>
@@ -440,3 +443,5 @@ posts.id = votes.post_id GROUP BY posts.id;`
 [Alembic](https://alembic.sqlalchemy.org/en/latest/)
 
 [CORS (Cross-Origin Resource Sharing)](https://fastapi.tiangolo.com/tutorial/cors/)
+
+[Heroku *Free*](https://www.heroku.com/)
