@@ -50,6 +50,8 @@
 
 **Step10:** Check head revision (not execute yet thing) `alembic heads`
 
-**Step11:** Execute head revision `alembic upgrade head`
+**Step11:** Execute head revision `alembic upgrade head` or `alembic upgrade +1`
 
 **Step12:** If you want to downgrade `alembic downgrade <the previod revision>` or `alembic downgrade -1`
+
+**Step13:** Check history `alembic history`
