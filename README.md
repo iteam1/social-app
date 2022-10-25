@@ -246,11 +246,11 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 **Section 11: Database Migration w/ Alembic**
 
-- What is a database migration tool
+- [What is a database migration tool](https://github.com/iteam1/social-app/tree/v16)
 
-- Alembic Setup
+- [Alembic Setup](https://github.com/iteam1/social-app/tree/v16)
 
-- Disable SqlAlchemy create Engine
+- [Disable SqlAlchemy create Engine](https://github.com/iteam1/social-app/tree/v16)
 
 **Section 12: Pre Deployment Checklist**
 

@@ -56,3 +56,7 @@
 **Step12:** If you want to downgrade `alembic downgrade <the previod revision>` or `alembic downgrade -1`
 
 **Step13:** Check history `alembic history`
+
+**Step14:** Auto generate tables `alembic revision --autogenerate -m 'auto create votes table'`
+
+**Step14:** Auto check changing and auto generate revision `alembic revision --autogenerate -m 'add phone number'` and upgrade `alembic upgrade head`

@@ -5,7 +5,8 @@ from .database import engine,get_db
 from .routers import post,user,auth,vote
 
 # connect server-databse and create tables
-models.Base.metadata.create_all(bind = engine)
+# no longer need this because alembic mirgation tool
+# models.Base.metadata.create_all(bind = engine)
 
 # init app
 app = FastAPI()

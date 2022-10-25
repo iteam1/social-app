@@ -24,6 +24,7 @@ class User(Base):
 	email = Column(String,nullable=False,unique = True)
 	password = Column(String,nullable=False)
 	create_at = Column(TIMESTAMP(timezone=True),nullable = False,server_default = text('now()'))
+	phone_number = Column(String) # create for testing alemic migrate database
 
 class Vote(Base):
 	__tablename__ = "votes"
