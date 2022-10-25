@@ -254,13 +254,13 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 **Section 12: Pre Deployment Checklist**
 
-- What is CORS?
+- [What is CORS?](https://github.com/iteam1/social-app/tree/v17)
 
-- Git PreReqs
+- [Git PreReqs](https://github.com/iteam1/social-app/tree/v17)
 
-- Git Install
+- [Git Install](https://github.com/iteam1/social-app/tree/v17)
 
-- Github
+- [Github](https://github.com/iteam1/social-app/tree/v17)
 
 **Section 13: Deployment Heroku**
 
@@ -438,3 +438,5 @@ posts.id = votes.post_id GROUP BY posts.id;`
 [Decode token online tool](http://calebb.net/)
 
 [Alembic](https://alembic.sqlalchemy.org/en/latest/)
+
+[CORS (Cross-Origin Resource Sharing)](https://fastapi.tiangolo.com/tutorial/cors/)
