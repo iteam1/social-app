@@ -33,10 +33,10 @@ FastAPI framework
 - group by and rename `SELECT users.id , COUNT(posts.id) as users_post_count FROM posts LEFT JOIN users ON
 posts.owner_id = users.id  group by users.id;`
 
--count vote follow posts `SELECT posts.id,COUNT(*) AS vote_count FROM posts LEFT JOIN votes ON
+- count vote follow posts `SELECT posts.id,COUNT(*) AS vote_count FROM posts LEFT JOIN votes ON
 posts.id = votes.post_id GROUP BY posts.id;`
 
--count vote follow posts count user_id column `SELECT posts.id, COUNT(votes.user_id) AS vote_count FROM posts LEFT JOIN votes ON posts.id = votes.post_id GROUP BY posts.id;`
+- count vote follow posts count user_id column `SELECT posts.id, COUNT(votes.user_id) AS vote_count FROM posts LEFT JOIN votes ON posts.id = votes.post_id GROUP BY posts.id;`
 
 - count vote with WHERE condition `SELECT posts.*, COUNT(votes.post_id) AS vote_count FROM posts LEFT JOIN votes ON posts.id = votes.post_id  WHERE posts.id = 7 GROUP BY posts.id;`
 
