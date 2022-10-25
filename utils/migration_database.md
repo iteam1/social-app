@@ -6,6 +6,7 @@
 
 	 	from app.models import Base # import base from database
 		from app.config import settings
+		
 		# access to the values within the .ini file in use.
 		config = context.config 
 		config.set_main_option('sqlalchemy.url',f'postgresql+psycopg2://{settings.database_username}:{settings.
