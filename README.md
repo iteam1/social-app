@@ -267,19 +267,19 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 **Section 13: Deployment Heroku**
 
-- Heroku intro
+- [Heroku intro](https://github.com/iteam1/social-app/tree/v18)
 
-- Create Heroku App
+- [Create Heroku App](https://github.com/iteam1/social-app/tree/v18)
 
-- Heroku procfile
+- [Heroku procfile](https://github.com/iteam1/social-app/tree/v18)
 
-- Adding a Postgres database
+- [Adding a Postgres database](https://github.com/iteam1/social-app/tree/v18)
 
-- Env Variables in Heroku
+- [Env Variables in Heroku](https://github.com/iteam1/social-app/tree/v18)
 
-- Alembic migrations on Heroku Postgres instance
+- [Alembic migrations on Heroku Postgres instance](https://github.com/iteam1/social-app/tree/v18)
 
-- Pushing changed to production
+- [Pushing changed to production](https://github.com/iteam1/social-app/tree/v18)
 
 **Section 14: Deployment Ubuntu**
 
