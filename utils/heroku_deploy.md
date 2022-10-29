@@ -50,3 +50,5 @@
 - view logs-tail `heroku logs -t`
 
 - get heroku app info `heroku app`
+
+- Alembic migrations on Heroku Postgres instance `heroku run "alembic upgrade head"`

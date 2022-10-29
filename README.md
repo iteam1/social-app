@@ -61,6 +61,8 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 - install `bcrypt` package `pip3 install bcrypt`
 
+- install alembic package `pip3 install alembic`
+
 ### Course contents
 
 <details><summary>Click to expand</summary>
