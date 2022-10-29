@@ -49,9 +49,13 @@
 
 ## Run postgresql container
 
-- create postgresql container `sudo docker run --name pgsql-dev -e POSTGRES_PASSWORD=pass123 -p 5431:5431 postgres`
+- create postgresql container map internal port 5432 to external port 5431: `sudo docker run --name pgsql-dev -e POSTGRES_PASSWORD=pass123 -p 5431:5432 postgres`
 
 - This command will start an interactive terminal inside the container. Next, you can start the PostgreSQL by running the following command on the same terminal. `docker exec -it pgsql-dev bash`
+
+- start the postgres-container `sudo docker start 8121bd993540`
+
+- you can access postgres docker-container with  address `172.0.0.1` port `5431`
 
 ## Install Postgres & setup password On virtual machine
 
