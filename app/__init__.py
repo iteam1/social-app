@@ -23,3 +23,6 @@ while True: # MUST connect to database successfully before runing server API
 		print(f"Connecting to postgres {settings.database_hostname} database {settings.database_name} FAILED!")
 		print("Error: ",e)
 		time.sleep(3)
+
+# conn = None
+# cursor = None

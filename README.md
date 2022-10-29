@@ -44,6 +44,23 @@ posts.id = votes.post_id GROUP BY posts.id;`
 - check install version `heroku --version`
 - get help `heroku --help`
 - check git remote `git remote`
+
+## Dependenices
+
+- install automaticly `pip3 install -r requirements.txt`
+
+- install FastAPI full `pip3 install fastapi[all]`
+
+- install python - postgresql driver `pip3 install psycopg2-binary`
+
+- install sqlalchemy `pip3 install sqlalchemy`
+
+- install jose-authentication `pip3 install python-jose`
+
+- install `passlib` package `pip3 install passlib`
+
+- install `bcrypt` package `pip3 install bcrypt`
+
 ### Course contents
 
 <details><summary>Click to expand</summary>
@@ -445,3 +462,5 @@ posts.id = votes.post_id GROUP BY posts.id;`
 [CORS (Cross-Origin Resource Sharing)](https://fastapi.tiangolo.com/tutorial/cors/)
 
 [Heroku *Free*](https://www.heroku.com/)
+
+[Heroku-Postgres](https://devcenter.heroku.com/articles/heroku-postgresql)
