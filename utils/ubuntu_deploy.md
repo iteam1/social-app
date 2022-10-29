@@ -33,7 +33,7 @@
 
 - install text vim-editor `sudo apt install vim` or nano-editor `sudo apt install nano`
 
-##Install Python
+## Install Python
 
 - check python version `python3 --version`
 
@@ -75,7 +75,7 @@
 
 - go to default database `psql -U -postgres -d postgres`
 
-##Postgres Config
+## Postgres Config
 
 - to to postgres installation floder `cd /etc/postgresql`
 
