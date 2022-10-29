@@ -133,6 +133,25 @@ to
 
 ## Create new user and setup python environment
 
+- create new user `adduser admin` pass `pass123`
+
+- change to new user role `su - admin`
+
+- from root role give admin sudo permission `usermod -aG sudo admin`
+
+- go to your home `cd ~`
+
+- create directory app `mkdir app` and cd to it `cd app`
+
+- create virtualenv `virtualenv env`
+
+- activate and deactivate virtualenv `source env/bin/activate` and `deactivate`
+
+- create src directory `mkdir src` and go to it `cd src`
+
+- clone repo but without create directory name `git clone https://github.com/iteam1/social-app.git .
+` 
+
 ## Environment Variables
 
 ## Alembic migrations on production database 12:42:24
