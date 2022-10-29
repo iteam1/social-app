@@ -466,3 +466,7 @@ posts.id = votes.post_id GROUP BY posts.id;`
 [Heroku *Free*](https://www.heroku.com/)
 
 [Heroku-Postgres](https://devcenter.heroku.com/articles/heroku-postgresql)
+
+[DigitalOcean](https://www.digitalocean.com/)
+
+[VirtualBox](https://phoenixnap.com/kb/install-virtualbox-on-ubuntu)
