@@ -473,6 +473,6 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 [Creating a Linux Virtual Machine with VirtualBox](https://www.youtube.com/watch?v=Fy0MuysJU5Q)
 
-[](https://ubuntu.com/download)
+[ubuntu release](https://releases.ubuntu.com/)
 
 [Xubuntu](https://xubuntu.org/)
