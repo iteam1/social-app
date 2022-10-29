@@ -13,7 +13,7 @@
 
 - pull ubuntu image: `docker pull ubuntu`
 
-- run docker imgae interactive mode `sudo docker run -t [your image name]`
+- run docker imgae interactive mode `sudo docker run -t -p 8000:8000 [your image name]`
 
 - start the container `sudo docker container start [container id]`
 
