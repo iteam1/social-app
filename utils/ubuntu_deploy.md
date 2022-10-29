@@ -154,20 +154,36 @@ to
 
 ## Environment Variables
 
-## Alembic migrations on production database 12:42:24
+- assign env-var `export MY_VAR = 123`
+
+- clear env-var `unset MY_VAR = 123`
+
+- go back home directory `cd ~`
+
+- create .env file `touch .env` and open it `nano .env`, list hidden file `ls -la`
+
+- set all env-vars `source .env`
+
+- check all env-vars `printenv`
+ 
+- export env-vars `set -o allexport; source /home/admin/.env; set +o allexport`
+
+- list hidden file and find .procfile in home directory, then copy the export command and save it, the set env-vars will run automaticlly.
+
+## Alembic migrations on production database
 
 ## Gunicorn
 
 ## Creating a Systemd service
 
-NGINX
+- NGINX
 
-Setting up Domain name
+- Setting up Domain name
 
-SSL/HTTPS
+- SSL/HTTPS
 
-##NGINX enable
+- NGINX enable
 
-##Firewall
+- Firewall
 
-##Pushing code changes to Production
+- Pushing code changes to Production
