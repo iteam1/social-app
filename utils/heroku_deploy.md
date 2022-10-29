@@ -1,12 +1,23 @@
-**step1** install `heroku` on ubuntu `sudo snap install heroku --classic` or install heroku CLI `curl https://cli-assets.heroku.com/install.sh | sh`
+install `heroku` on ubuntu `sudo snap install heroku --classic` or install heroku CLI `curl https://cli-assets.heroku.com/install.sh | sh`
 
-**step2** check install version `heroku --version`
+check install version `heroku --version`
 
-**step3** get help `heroku --help`
+get help `heroku --help`
 
-**step4** login heroku `heroku login`
+login heroku `heroku login`
 
-**step5** create app `heroku create social-app-34643`
+create `runtime.txt` for specify python version python-3.9.15 for heroku detect version python
 
-**step6** push your repo to heroku `git push heroku main`
+If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key. heroku login create repo on heroku `heroku create`
 
+define how to run your app with Procfile `touch Profile`
+
+connect git with heroku `heroku git:remote -a <your-heroku-app-name>`
+
+commit changes with git
+
+	git add .
+	git commit -am "make it better"
+	deploy repo on heroku git push heroku main
+
+*Note* python verison 3.6.9 is not supported on heroku
