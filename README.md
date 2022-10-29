@@ -302,51 +302,51 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 **Section 14: Deployment Ubuntu**
 
-- Create an Ubuntu VM
+- [Create an Ubuntu VM](https://github.com/iteam1/social-app/tree/v19)
 
-- Update packages
+- [Update packages](https://github.com/iteam1/social-app/tree/v19)
 
-- Install Python
+- [Install Python](https://github.com/iteam1/social-app/tree/v19)
 
-- Install Postgres & setup password
+- [Install Postgres & setup password](https://github.com/iteam1/social-app/tree/v19)
 
-- Postgres Config
+- [Postgres Config](https://github.com/iteam1/social-app/tree/v19)
 
-- Create new user and setup python evironment
+- [Create new user and setup python evironment](https://github.com/iteam1/social-app/tree/v19)
 
-- Env Variables
+- [Env Variables](https://github.com/iteam1/social-app/tree/v19)
 
-- Alembic migrations on production database
+- [Alembic migrations on production database](https://github.com/iteam1/social-app/tree/v19)
 
-- Gunicorn
+- [Gunicorn](https://github.com/iteam1/social-app/tree/v19)
 
-- Creating a Systemd service
+- [Creating a Systemd service](https://github.com/iteam1/social-app/tree/v19)
 
-- NGINX
+- [NGINX](https://github.com/iteam1/social-app/tree/v19)
 
-- Setting up Domain name
+- [Setting up Domain name](https://github.com/iteam1/social-app/tree/v19)
 
-- SSL/HTTPS
+- [SSL/HTTPS](https://github.com/iteam1/social-app/tree/v19)
 
-- NGINX enable
+- [NGINX enable](https://github.com/iteam1/social-app/tree/v19)
 
-- Firewall
+- [Firewall](https://github.com/iteam1/social-app/tree/v19)
 
-- Pushing code changes to Production
+- [Pushing code changes to Production](https://github.com/iteam1/social-app/tree/v19)
 
 **Section 15: Docker**
 
-- Dockerfile
+- [Dockerfile](https://github.com/iteam1/social-app/tree/v19)
 
-- Docker Compose
+- [Docker Compose](https://github.com/iteam1/social-app/tree/v19)
 
-- Postgres Container
+- [Postgres Container](https://github.com/iteam1/social-app/tree/v19)
 
-- Bind Mounts
+- [Bind Mounts](https://github.com/iteam1/social-app/tree/v19)
 
-- Dockerhub
+- [Dockerhub](https://github.com/iteam1/social-app/tree/v19)
 
-- Production vs Development
+- [Production vs Development](https://github.com/iteam1/social-app/tree/v19)
 
 **Section 16: Testing**
 
