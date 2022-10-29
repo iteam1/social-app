@@ -336,17 +336,17 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 **Section 15: Docker**
 
-- [Dockerfile](https://github.com/iteam1/social-app/tree/v19)
+- [Dockerfile](https://github.com/iteam1/social-app/tree/v20)
 
-- [Docker Compose](https://github.com/iteam1/social-app/tree/v19)
+- [Docker Compose](https://github.com/iteam1/social-app/tree/v20)
 
-- [Postgres Container](https://github.com/iteam1/social-app/tree/v19)
+- [Postgres Container](https://github.com/iteam1/social-app/tree/v20)
 
-- [Bind Mounts](https://github.com/iteam1/social-app/tree/v19)
+- [Bind Mounts](https://github.com/iteam1/social-app/tree/v20)
 
-- [Dockerhub](https://github.com/iteam1/social-app/tree/v19)
+- [Dockerhub](https://github.com/iteam1/social-app/tree/v20)
 
-- [Production vs Development](https://github.com/iteam1/social-app/tree/v19)
+- [Production vs Development](https://github.com/iteam1/social-app/tree/v20)
 
 **Section 16: Testing**
 
@@ -470,3 +470,9 @@ posts.id = votes.post_id GROUP BY posts.id;`
 [DigitalOcean](https://www.digitalocean.com/)
 
 [VirtualBox](https://phoenixnap.com/kb/install-virtualbox-on-ubuntu)
+
+[Creating a Linux Virtual Machine with VirtualBox](https://www.youtube.com/watch?v=Fy0MuysJU5Q)
+
+[](https://ubuntu.com/download)
+
+[Xubuntu](https://xubuntu.org/)
