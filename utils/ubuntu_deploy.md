@@ -187,6 +187,8 @@ to
 
 ## Gunicorn
 
+- run app listen on any ip-address `uvicorn --host 0.0.0.0 app.main:app`
+
 ## Creating a Systemd service
 
 - NGINX
