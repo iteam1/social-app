@@ -44,6 +44,7 @@ posts.id = votes.post_id GROUP BY posts.id;`
 - check install version `heroku --version`
 - get help `heroku --help`
 - check git remote `git remote`
+- run pytest `pytest`
 
 ## Dependenices
 
@@ -62,6 +63,8 @@ posts.id = votes.post_id GROUP BY posts.id;`
 - install `bcrypt` package `pip3 install bcrypt`
 
 - install alembic package `pip3 install alembic`
+
+- install pytest package `pip3 install pytest`
 
 ### Course contents
 
@@ -486,3 +489,5 @@ posts.id = votes.post_id GROUP BY posts.id;`
 [certbot](https://certbot.eff.org/)
 
 [dockerhub](https://hub.docker.com/)
+
+[pytest](https://docs.pytest.org/en/7.2.x/)
