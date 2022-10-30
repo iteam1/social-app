@@ -478,3 +478,11 @@ posts.id = votes.post_id GROUP BY posts.id;`
 [Xubuntu](https://xubuntu.org/)
 
 [postgresql-docker](https://www.sqlshack.com/getting-started-with-postgresql-on-docker/)
+
+[nginx](https://www.nginx.com/)
+
+[namecheap](https://www.namecheap.com/)
+
+[certbot](https://certbot.eff.org/)
+
+[dockerhub](https://hub.docker.com/)
