@@ -11,3 +11,6 @@ env
 
 # python interpreter
 __pycache__
+
+# pytest
+.pytest_cache
