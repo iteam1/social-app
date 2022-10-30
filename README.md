@@ -350,47 +350,47 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 **Section 16: Testing**
 
-- Testing Intro
+- [Testing Intro](https://github.com/iteam1/social-app/tree/v21)
 
-- Writing your first test
+- [Writing your first test](https://github.com/iteam1/social-app/tree/v21)
 
-- The -s & -v flags
+- [The -s & -v flags](https://github.com/iteam1/social-app/tree/v21)
 
-- Testing more functions
+- [Testing more functions](https://github.com/iteam1/social-app/tree/v21)
 
-- Parametrize
+- [Parametrize](https://github.com/iteam1/social-app/tree/v21)
 
-- Testing Classes
+- [Testing Classes](https://github.com/iteam1/social-app/tree/v21)
 
-- Fixtures
+- [Fixtures](https://github.com/iteam1/social-app/tree/v21)
 
-- Combining Fixtures + Parametrize
+- [Combining Fixtures + Parametrize](https://github.com/iteam1/social-app/tree/v21)
 
-- Testing Exceptions
+- [Testing Exceptions](https://github.com/iteam1/social-app/tree/v21)
 
-- FastAPI TestClient
+- [FastAPI TestClient](https://github.com/iteam1/social-app/tree/v21)
 
-- Pytest flags
+- [Pytest flags](https://github.com/iteam1/social-app/tree/v21)
 
-- Test create user
+- [Test create user](https://github.com/iteam1/social-app/tree/v21)
 
-- Setup testing database
+- [Setup testing database](https://github.com/iteam1/social-app/tree/v21)
 
-- Create & destroy database after each test
+- [Create & destroy database after each test](https://github.com/iteam1/social-app/tree/v21)
 
-- More Fixtures to handle database interaction
+- [More Fixtures to handle database interaction](https://github.com/iteam1/social-app/tree/v21)
 
-- Trailing slashes in path
+- [Trailing slashes in path](https://github.com/iteam1/social-app/tree/v21)
 
-- Fixture scope
+- [Fixture scope](https://github.com/iteam1/social-app/tree/v21)
 
-- Test user fixture
+- [Test user fixture](https://github.com/iteam1/social-app/tree/v21)
 
-- Test/validate token
+- [Test/validate token](https://github.com/iteam1/social-app/tree/v21)
 
-- Conftest.py
+- [Conftest.py](https://github.com/iteam1/social-app/tree/v21)
 
-- Testing
+- [Testing](https://github.com/iteam1/social-app/tree/v21)
 
 **Section 17: CI/CD pipeline**
 
