@@ -189,16 +189,45 @@ to
 
 - run app listen on any ip-address `uvicorn --host 0.0.0.0 app.main:app`
 
+- run by gunicorn setup 2 workers `gunicorn -w 2 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+`
+- check working `ps -aef | grep -i gunicorn`
+
 ## Creating a Systemd service
 
-- NGINX
+- run app when reboot in background
 
-- Setting up Domain name
+- check service `cd /etc/systemd/system/`
 
-- SSL/HTTPS
+- create service `nano <your-service-name>.service` with content
 
-- NGINX enable
+		[Unit]
+		Description=demo fastapi application
+		After=network.target
+		[Service]
+		User=admin
+		Group=admin
+		WorkingDirectory=/home/admin/app/src/
+		Environment="PATH=/home/admin/app/env/bin"
+		EnvironmentFile=/home/amdin/.env
+		ExecStart=/home/admin/app/env/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+		[Install]
+		WantedBy=multi-user.target
 
-- Firewall
+- start service `systemctl start <your-service-name>`
 
-- Pushing code changes to Production
+- check service serivce `systemctl start <your-service-name>`
+
+- restart your service `systemctl start <your-service-name>`
+
+**NGINX**
+
+**Setting up Domain name**
+
+**SSL/HTTPS**
+
+**NGINX enable**
+
+**Firewall**
+
+**Pushing code changes to Production**
