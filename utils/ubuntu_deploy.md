@@ -220,6 +220,8 @@ to
 
 - restart your service `systemctl start <your-service-name>`
 
+- enable autostart when reboot `sudo systemctl enable <your-service-name>`
+	
 **NGINX**
 
 **Setting up Domain name**
