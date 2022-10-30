@@ -170,7 +170,20 @@ to
 
 - list hidden file and find .procfile in home directory, then copy the export command and save it, the set env-vars will run automaticlly.
 
+		export DATABASE_USERNAME=postgres
+		export DATABASE_PASSWORD=pass123
+		export DATABASE_NAME=fastapi
+		export DATABASE_PORT=5432
+		export DATABASE_HOSTNAME=172.17.0.2
+		export ALGORITHM=HS256
+		export SECRET_KEY=09c47fdd132bc4c948adf7dac546c2213ab91cbdd572addbfb844aab6167d295
+		export ACCESS_TOKEN_EXPIRE_MINUTES=30
+
 ## Alembic migrations on production database
+
+- generate database by alembic `alembic uprade head`
+
+*Note* when you run app-container and postgres-container with map port, therse containers are in the same docker internal network, so you can access database postgres on app-container by port 5432 but when you go outside, port 5432 in the container will mapp to 5431 and access via ip 172.17.0.1
 
 ## Gunicorn
 
