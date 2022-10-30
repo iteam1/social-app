@@ -44,7 +44,7 @@ posts.id = votes.post_id GROUP BY posts.id;`
 - check install version `heroku --version`
 - get help `heroku --help`
 - check git remote `git remote`
-- run pytest `pytest`
+- run pytest `pytest` or you can run `pytest <your_specific_file>.py` or `pytest -v` or `pytest -v -s`
 
 ## Dependenices
 
@@ -64,7 +64,7 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 - install alembic package `pip3 install alembic`
 
-- install pytest package `pip3 install pytest` (pytest run every file name *_test.py or test_*.py) or you can run `pytest <your_specific_file>.py`
+- install pytest package `pip3 install pytest` (pytest run every file name *_test.py or test_*.py) 
 
 ### Course contents
 
