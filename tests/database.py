@@ -17,9 +17,12 @@ TestingSessionLocal = sessionmaker(autocommit = False,autoflush=False,bind = eng
 
 # client depend on session
 # scope = function will destroy database evrytime
-# scope = module will destroy it in the end
+# scope = module will destroy fixture in the end of module
+# scope = session will destroy fixture after run all modules
+
 @pytest.fixture(scope = "module")
 def session():
+	#print("my session fixture ran")
 	Base.metadata.drop_all(bind = engine)
 	Base.metadata.create_all(bind = engine)
 	db = TestingSessionLocal()
@@ -27,7 +30,7 @@ def session():
 		yield db
 	finally:
 		db.close()
-		
+
 @pytest.fixture(scope = "module")
 def client(session):
 	def override_get_db():
