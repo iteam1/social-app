@@ -8,13 +8,26 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 # from alembic import command
-
+# testing database url
 SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}/{settings.database_name}_test"
-
+# init database engine
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
-
+# init session to communicate with database
 TestingSessionLocal = sessionmaker(autocommit = False,autoflush=False,bind = engine) 
 
+# client depend on session
+# scope = function will destroy database evrytime
+# scope = module will destroy it in the end
+@pytest.fixture(scope = "module")
+def session():
+	Base.metadata.drop_all(bind = engine)
+	Base.metadata.create_all(bind = engine)
+	db = TestingSessionLocal()
+	try:
+		yield db
+	finally:
+		db.close()
+		
 @pytest.fixture(scope = "module")
 def client(session):
 	def override_get_db():
@@ -25,13 +38,3 @@ def client(session):
 	app.dependency_overrides[get_db] = override_get_db
 	yield TestClient(app)
 
-# client depend on session
-@pytest.fixture(scope = "module")
-def session():
-	Base.metadata.drop_all(bind = engine) #scope = function will destroy database evrytime, scope = module will destroy it in the end
-	Base.metadata.create_all(bind = engine)
-	db = TestingSessionLocal()
-	try:
-		yield db
-	finally:
-		db.close()
