@@ -36,7 +36,7 @@ app.include_router(vote.router)
 
 @app.get("/") # method and path
 def root(): # the function option async
-	return{"message":"wellcome to my api"} # FastAPI auto convert dict into json
+	return {"message":"wellcome to my api"} # FastAPI auto convert dict into json
 
 @app.get("/sqlalchemy")
 def test_sqlalchemy(db:Session = Depends(get_db)):

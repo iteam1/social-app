@@ -44,7 +44,8 @@ posts.id = votes.post_id GROUP BY posts.id;`
 - check install version `heroku --version`
 - get help `heroku --help`
 - check git remote `git remote`
-- run pytest `pytest` or you can run `pytest <your_specific_file>.py` or `pytest -v` or `pytest -v -s`
+- run pytest `pytest` or you can run `pytest <your_specific_file>.py` or `pytest -v` or `pytest -v -s` example `pytest --disable-warnings -v -s tests/test_users.py`
+- run pytest and stop in the first test fail ` pytest --disable-warnings -v -s -x tests/test_users.py`
 
 ## Dependenices
 
@@ -381,19 +382,19 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 - [Create & destroy database after each test](https://github.com/iteam1/social-app/tree/v21)
 
-- [More Fixtures to handle database interaction](https://github.com/iteam1/social-app/tree/v21)
+- [More Fixtures to handle database interaction](https://github.com/iteam1/social-app/tree/v22)
 
-- [Trailing slashes in path](https://github.com/iteam1/social-app/tree/v21)
+- [Trailing slashes in path](https://github.com/iteam1/social-app/tree/v22)
 
-- [Fixture scope](https://github.com/iteam1/social-app/tree/v21)
+- [Fixture scope](https://github.com/iteam1/social-app/tree/v22)
 
-- [Test user fixture](https://github.com/iteam1/social-app/tree/v21)
+- [Test user fixture](https://github.com/iteam1/social-app/tree/v22)
 
-- [Test/validate token](https://github.com/iteam1/social-app/tree/v21)
+- [Test/validate token](https://github.com/iteam1/social-app/tree/v22)
 
-- [Conftest.py](https://github.com/iteam1/social-app/tree/v21)
+- [Conftest.py](https://github.com/iteam1/social-app/tree/v22)
 
-- [Testing](https://github.com/iteam1/social-app/tree/v21)
+- [Testing](https://github.com/iteam1/social-app/tree/v22)
 
 **Section 17: CI/CD pipeline**
 
@@ -491,3 +492,5 @@ posts.id = votes.post_id GROUP BY posts.id;`
 [dockerhub](https://hub.docker.com/)
 
 [pytest](https://docs.pytest.org/en/7.2.x/)
+
+[FastAPI Testing](https://fastapi.tiangolo.com/tutorial/testing/)
