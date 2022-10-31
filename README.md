@@ -494,3 +494,5 @@ posts.id = votes.post_id GROUP BY posts.id;`
 [pytest](https://docs.pytest.org/en/7.2.x/)
 
 [FastAPI Testing](https://fastapi.tiangolo.com/tutorial/testing/)
+
+[Mock-data mockaroo](https://www.mockaroo.com/)
