@@ -1,3 +1,7 @@
+'''
+this is a specify module for storing pytest.fixturr
+the pytest.fixture defined in here can be accessable from any test module in THE SAME DIRECTORY
+'''
 import pytest
 from fastapi.testclient import TestClient
 from app.main import app
@@ -40,3 +44,17 @@ def client(session):
 			session.close()
 	app.dependency_overrides[get_db] = override_get_db
 	yield TestClient(app)
+
+@pytest.fixture(scope = 'function')
+def test_user(client):
+	print('creating new user')
+	data = {
+		"email":"tester2@email.com",
+		"password": "123"
+	}
+	res = client.post("/users/",json = data)
+	assert res.status_code == 201
+	print(res.json())
+	new_user = res.json()
+	new_user['password'] = data['password'] # add field password
+	return new_user

@@ -1,22 +1,8 @@
 import pytest
 from app import schemas
 from app.config import settings
-from .database import client,session
+# from .database import client,session
 from jose import jwt
-
-@pytest.fixture(scope = 'function')
-def test_user(client):
-	print('creating new user')
-	data = {
-		"email":"tester2@email.com",
-		"password": "123"
-	}
-	res = client.post("/users/",json = data)
-	assert res.status_code == 201
-	print(res.json())
-	new_user = res.json()
-	new_user['password'] = data['password'] # add field password
-	return new_user
 
 def test_create_user(client):
 	# send data in body, effect to database
