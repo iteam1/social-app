@@ -27,5 +27,5 @@ jobs:
       - name: test with pytest
         run: |
           pip install pytest
-          pytest -x -d
+          pytest -x -v
 
