@@ -86,8 +86,13 @@ jobs:
       name: production
     steps:
       - name: deploying stuff
-        run: echo "going to deploy"
-    # pull our github repo
-    # install heroku cli
-    # add git remote for heroku
-    # git push heroku main
+        run: echo "going to deploy on Heroku"
+      - name: pulling git repo # pull the repo branch main
+        uses: actions/checkout@v2
+      - name: deploying to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+  
