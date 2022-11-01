@@ -41,6 +41,58 @@ def test_get_one_post_not_exist(authorized_client,test_posts):
 
 # CREATE
 
+@ pytest.mark.parametrize("title,content,published",[
+	("awesome first post","first awesome content",True),
+	("awesome second post","second awesome content",True),
+	("awesome third post","third awesome content",False),
+	])
+def test_create_post(authorized_client,test_user,title,content,published):
+	res = authorized_client.post("/post/",json = {
+		"title": title,
+		"content": content,
+		"published": published
+		})
+	assert res.status_code == 201
+	# print(res.json())
+	created_post = schemas.PostTest(**res.json())
+	assert created_post.title == title
+	assert created_post.content == content
+	assert created_post.published == published
+	#assert created_post.owner_id == test_user['id']
+
+@ pytest.mark.parametrize("title,content,published",[
+	("awesome first post","first awesome content",True),
+	("awesome second post","second awesome content",True),
+	("awesome third post","third awesome content",False),
+	])
+def test_unauthorized_create_post(unauthorized_client,test_user,title,content,published):
+	res = unauthorized_client.post("/post/",json = {
+		"title": title,
+		"content": content,
+		"published": published
+		})
+	assert res.status_code == 401
+
+def test_create_post_with_default_published_true(authorized_client):
+	res = authorized_client.post("/post/",json = {"title":"arbitrary title","content":"some random content"})
+	assert res.status_code == 201
+	created_post = schemas.PostTest(**res.json())
+	assert created_post.published == True
+	assert created_post.title == "arbitrary title"
+	assert created_post.content == "some random content"
+
 # DELETE
+
+def test_delete_post_success(authorized_client,test_posts):
+	res = authorized_client.delete(f"/post/{test_posts[0].id}")
+	assert res.status_code == 204
+
+def test_delete_post_non_exist(authorized_client):
+	res = authorized_client.delete("/post/888")
+	assert res.status_code == 404
+
+def test_delete_other_user_post(authorized_client,test_posts2):
+	res = authorized_client.delete(f"/post/25")
+	assert res.status_code == 401
 
 # PUT

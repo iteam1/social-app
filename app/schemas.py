@@ -89,6 +89,17 @@ class PostOut(BaseModel):
 	class Config:
 		orm_mode=True
 
+class PostTest(BaseModel):
+	title:str
+	content:str
+	published:bool
+
+class PostTest2(BaseModel):
+	title:str
+	content:str
+	published:bool
+	owner_id:int
+
 class Token(BaseModel):
 	access_token: str
 	token_type: str

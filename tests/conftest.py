@@ -126,3 +126,50 @@ def unauthorized_client(session):
 			session.close()
 	app.dependency_overrides[get_db] = override_get_db
 	yield TestClient(app)
+
+@pytest.fixture(scope = "module")
+def test_user2(client):
+	data = {
+		"email":"tester3@email.com",
+		"password": "123"
+	}
+	res = client.post("/users/",json = data)
+	assert res.status_code == 201
+	print(res.json())
+	new_user = res.json()
+	new_user['password'] = data['password'] # add field password
+	return new_user
+
+@pytest.fixture(scope = "function")
+def test_posts2(test_user,test_user2,session):
+	'''
+	send some post to database
+	'''
+	# create post
+	posts_data = [
+	{"title":"the first title",
+	"content":"the first content",
+	"owner_id":test_user2['id']},
+	
+	{"title":"the second title",
+	"content":"the second content",
+	"owner_id":test_user2['id']},
+	
+	{"title":"the third title",
+	"content":"the third content",
+	"owner_id":test_user2['id']},
+	]
+
+	def create_post_model(post):
+		return models.Post(**post)
+	
+	# map(func,list)
+	post_map = map(create_post_model,posts_data)
+	posts = list(post_map)
+	
+	# add to test database
+	session.add_all(posts)
+	session.commit()
+	posts_added = session.query(models.Post).order_by('id').all()
+	
+	return posts_added
