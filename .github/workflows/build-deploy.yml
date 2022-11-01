@@ -16,6 +16,13 @@ jobs:
         uses: actions/checkout@v2 # pull changing
       - name: greeting info
         run: echo "hello deployer!"
-
+      - name: install python version 3.9
+        uses: actions/setup-python@v2 # use defined action (builtin)
+        with:
+          python-version: "3.9"
+      - name: update pip
+        run: python -m pip install --upgrade pip # run command on linux
+      - name: install all dependencies
+        run: pip install -r requirements.txt
 
 
