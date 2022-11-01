@@ -1,1 +1,20 @@
-name: Build and Deploy Code
+name: Build and Deploy Code # name of function
+
+# on: [push,pull_request]
+
+on: # triggers action
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  job1:
+    runs-on:ubuntu-latest
+    steps:
+      - name: pulling git repo # description for command
+        uses: actions/checkout@v2 # pull changing
+      - name: greeting info
+        run: echo "hello deployer!"
+
+
