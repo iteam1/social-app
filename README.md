@@ -400,27 +400,27 @@ posts.id = votes.post_id GROUP BY posts.id;`
 
 **Section 17: CI/CD pipeline**
 
-- CI/CD intro
+- [CI/CD intro](https://github.com/iteam1/social-app/tree/v23)
 
-- Github Actions
+- [Github Actions](https://github.com/iteam1/social-app/tree/v23)
 
-- Creating Jobs
+- [Creating Jobs](https://github.com/iteam1/social-app/tree/v23)
 
-- setup python/dependencies/pytest
+- [setup python/dependencies/pytest](https://github.com/iteam1/social-app/tree/v23)
 
-- Env variables
+- [Env variables](https://github.com/iteam1/social-app/tree/v23)
 
-- Github Secrets
+- [Github Secrets](https://github.com/iteam1/social-app/tree/v23)
 
-- Testing database
+- [Testing database](https://github.com/iteam1/social-app/tree/v23)
 
-- Building Docker images
+- [Building Docker images](https://github.com/iteam1/social-app/tree/v23)
 
-- Deploy to heroku
+- [Deploy to heroku](https://github.com/iteam1/social-app/tree/v23)
 
-- Failing tests in pipeline
+- [Failing tests in pipeline](https://github.com/iteam1/social-app/tree/v23)
 
-- Deploy to Ubuntu
+- [Deploy to Ubuntu](https://github.com/iteam1/social-app/tree/v23)
 
 </p>
 </details>
