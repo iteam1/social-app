@@ -498,3 +498,5 @@ posts.id = votes.post_id GROUP BY posts.id;`
 [FastAPI Testing](https://fastapi.tiangolo.com/tutorial/testing/)
 
 [Mock-data mockaroo](https://www.mockaroo.com/)
+
+[github-action](https://docs.github.com/en/actions)
