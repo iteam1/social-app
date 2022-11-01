@@ -10,11 +10,12 @@ on: # triggers action
 
 jobs:
   job1:
-    runs-on:ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: pulling git repo # description for command
         uses: actions/checkout@v2 # pull changing
       - name: greeting info
         run: echo "hello deployer!"
+
 
 
