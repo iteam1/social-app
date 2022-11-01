@@ -46,7 +46,6 @@ def vote(vote:Vote,db:Session = Depends(get_db),token: str = Header('Authenticat
 			raise HTTPException(status_code = status.HTTP_409_CONFLICT,
 				detail= f"This post is NOT exist or User did not vote post yet!")
 
-
 @router.get("/mine/",response_model = List[Voted])
 def my_vote(db:Session= Depends(get_db),token: str = Header('Authentication')): # None default arg before default arg	
 	current_user = get_current_user(token)

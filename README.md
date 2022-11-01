@@ -45,7 +45,9 @@ posts.id = votes.post_id GROUP BY posts.id;`
 - get help `heroku --help`
 - check git remote `git remote`
 - run pytest `pytest` or you can run `pytest <your_specific_file>.py` or `pytest -v` or `pytest -v -s` example `pytest --disable-warnings -v -s tests/test_users.py`
-- run pytest and stop in the first test fail ` pytest --disable-warnings -v -s -x tests/test_users.py`
+- run pytest and stop in the first test fail `pytest --disable-warnings -v -s -x tests/test_users.py`
+- run pytest and store result `pytest --disable-warnings -v -x tests/test_users.py > tests/test_votes.txt
+`
 
 ## Dependenices
 
