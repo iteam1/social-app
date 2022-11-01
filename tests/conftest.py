@@ -12,6 +12,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from app.oauth2 import create_access_token
+from app import models
 # from alembic import command
 # testing database url
 SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}/{settings.database_name}_test"
@@ -38,6 +39,9 @@ def session():
 
 @pytest.fixture(scope = "module")
 def client(session):
+	'''
+	authorized_client affect global to client
+	'''
 	def override_get_db():
 		try:
 			yield session
@@ -46,7 +50,7 @@ def client(session):
 	app.dependency_overrides[get_db] = override_get_db
 	yield TestClient(app)
 
-@pytest.fixture
+@pytest.fixture(scope = "module")
 def test_user(client):
 	data = {
 		"email":"tester2@email.com",
@@ -76,6 +80,49 @@ def authorized_client(client, token):
         **client.headers,
         "token": token
     }
-    print(client.headers)
-
+    #print(client.headers)
     return client
+
+@pytest.fixture
+def test_posts(test_user,session):
+	'''
+	send some post to database
+	'''
+	# create post
+	posts_data = [
+	{"title":"first title",
+	"content":"first content",
+	"owner_id":test_user['id']},
+	
+	{"title":"second title",
+	"content":"second content",
+	"owner_id":test_user['id']},
+	
+	{"title":"third title",
+	"content":"third content",
+	"owner_id":test_user['id']},
+	]
+
+	def create_post_model(post):
+		return models.Post(**post)
+	
+	# map(func,list)
+	post_map = map(create_post_model,posts_data)
+	posts = list(post_map)
+	
+	# add to test database
+	session.add_all(posts)
+	session.commit()
+	posts_added = session.query(models.Post).order_by('id').all()
+	
+	return posts_added
+
+@pytest.fixture(scope = "function")
+def unauthorized_client(session):
+	def override_get_db():
+		try:
+			yield session
+		finally:
+			session.close()
+	app.dependency_overrides[get_db] = override_get_db
+	yield TestClient(app)
