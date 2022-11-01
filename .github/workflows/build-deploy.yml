@@ -11,14 +11,14 @@ on: # triggers action
 jobs:
   job1:
     env:
-      DATABASE_USERNAME: postgres
-      DATABASE_PASSWORD: admin123
-      DATABASE_NAME: fastapi
-      DATABASE_PORT: 5432
-      DATABASE_HOSTNAME: localhost
-      ALGORITHM: HS256
-      SECRET_KEY: 09c47fdd132bc4c948adf7dac546c2213ab91cbdd572addbfb844aab6167d295
-      ACCESS_TOKEN_EXPIRE_MINUTES: 30
+      DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
+      DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
+      DATABASE_NAME: ${{secrets.DATABASE_NAME}}
+      DATABASE_PORT: ${{secrets.DATABASE_PORT}}
+      DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
+      ALGORITHM: ${{secrets.ALGORITHM}}
+      SECRET_KEY: ${{secrets.SECRET_KEY}}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo # description for command
@@ -36,5 +36,5 @@ jobs:
       - name: test with pytest
         run: |
           pip install pytest
-          pytest -x -v
+          pytest
 
