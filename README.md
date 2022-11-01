@@ -1,6 +1,8 @@
 # social-app
 FastAPI framework
 
+[Example on Heroku](https://tranquil-cliffs-83883.herokuapp.com/docs)
+
 ### Guides
 
 *Note: Run the command on your terminal*
