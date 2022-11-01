@@ -82,6 +82,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [build] # list of job need to complete
+    environment:
+      name: production
     steps:
       - name: deploying stuff
         run: echo "going to deploy"
+    # pull our github repo
+    # install heroku cli
+    # add git remote for heroku
+    # git push heroku main
