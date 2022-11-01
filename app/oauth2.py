@@ -39,14 +39,11 @@ def verify_access_token(token:str,credentials_exception):
 def get_current_user(token:str = Depends(oauth2_scheme)):
 
 	credentials_exception = HTTPException(status_code = status.HTTP_401_UNAUTHORIZED,
-											detail = f"Could not validate credentials",
+											detail = f"Could not validate this credentials",
 											headers = {"WWW-Authenticate":"Bearer"})
 
 	# get token data
 	token = verify_access_token(token,credentials_exception) # {'id':id}
-
-	# query user id get ERROR Depends has no attritute query.Must attach is on post routes because oauth2 is not route
-	#user = db.query(models.User).filter(models.User.id == token.id).first() 
 	
 	cursor.execute(f"""SELECT * FROM users WHERE id = {token.id}""")
 	user = cursor.fetchone()

@@ -11,6 +11,7 @@ from app.database import get_db,Base
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from app.oauth2 import create_access_token
 # from alembic import command
 # testing database url
 SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}/{settings.database_name}_test"
@@ -45,9 +46,8 @@ def client(session):
 	app.dependency_overrides[get_db] = override_get_db
 	yield TestClient(app)
 
-@pytest.fixture(scope = 'function')
+@pytest.fixture
 def test_user(client):
-	print('creating new user')
 	data = {
 		"email":"tester2@email.com",
 		"password": "123"
@@ -58,3 +58,24 @@ def test_user(client):
 	new_user = res.json()
 	new_user['password'] = data['password'] # add field password
 	return new_user
+
+@pytest.fixture
+def token(test_user):
+	print(test_user)
+	access_token = create_access_token({"user_id":test_user['id']})
+	print("access_token: ",access_token)
+	return access_token
+
+'''
+this is the client (for sending requests) with added token in header
+take client, add token generated in to header and return it
+'''
+@pytest.fixture
+def authorized_client(client, token):
+    client.headers = {
+        **client.headers,
+        "token": token
+    }
+    print(client.headers)
+
+    return client
